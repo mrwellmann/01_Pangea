@@ -1,0 +1,61 @@
+/* Styles for products/index */
+
+#product-list table {
+        border-collapse: collapse;
+}
+
+#product-list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#product-list .list-image {
+  width:        60px;
+  height:       70px;
+}
+
+#product-list .list-description {
+  width:        60%;
+}
+
+#product-list .list-description dl {
+        margin: 0;
+}
+
+#product-list .list-description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#product-list .list-price_exp {
+  width:        10%;
+}
+
+#product-list .list-price_exp dl {
+        margin: 0;
+}
+
+#product-list .list-price_exp dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#product-list .list-price_exp dd {
+        margin: 0;
+}
+
+#product-list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#product-list .list-line-even {
+  background:   #f0f0f0;
+}
+
+#product-list .list-line-odd {
+  background:   #c8c8c8;
+}
