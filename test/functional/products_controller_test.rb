@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
-  
+  include Devise::TestHelpers
+
+
   Product.delete_all
  
   test "should get index" do
@@ -18,6 +20,9 @@ class ProductsControllerTest < ActionController::TestCase
 
 
     #TODO: login admin
+    @admin_logged_in =  Admin.make
+    sign_in :admin,  @admin_logged_in
+
     
     test "should get new" do
       get :new

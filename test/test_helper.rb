@@ -38,12 +38,12 @@ class ActiveSupport::TestCase
   #fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include Devise::TestHelpers
 end
-
   require File.dirname(__FILE__) + '/blueprints'
   
   require "webrat"
-  
   Webrat.configure do |config|
     config.mode = :rails
   end
+

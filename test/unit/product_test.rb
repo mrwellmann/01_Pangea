@@ -15,6 +15,7 @@ class ProductTest < ActiveSupport::TestCase
 #  should_validate_format_of :image_url, :with => %r{\.(gif|jpg|png)$}i, 
 #                            :message => 'must be a URL for GIF, JPG or PNG image.'
 
+
   
   test "should be possible to fill in everything" do
   p = Product.create!(:title => 'WHOPPER®', 

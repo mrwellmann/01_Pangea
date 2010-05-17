@@ -20236,3 +20236,126 @@ Processing ProductsController#show (for 127.0.0.1 at 2010-05-04 18:20:39) [GET]
 Rendering template within layouts/products
 Rendering products/show
 Completed in 15ms (View: 15, DB: 0) | 200 OK [http://www.example.com/products/3]
+  [4;36;1mProduct Delete all (3.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (4.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (3.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (4.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', '37a4ab6b8b7a845424964db634bbf4da97b88662', NULL, 0, '2010-05-17 14:09:30', NULL, 'F4JshLMPvDKHCn8hjOQ-', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:09:30')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (0.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', '17a64ffe92acf4714931f0a35cf758fdd55e8fb5', NULL, 0, '2010-05-17 14:11:50', NULL, 'waY6HhU9F3-DZZ6pLOwK', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:11:50')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (2.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', '1faa40eadea6e854f88e8aa49a4ee1051172c4dc', NULL, 0, '2010-05-17 14:13:16', NULL, 'bAY83XxwBToubuFHcAgl', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:13:16')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (2.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', '9393b307d69f31aee310a55c30616924c75b9edc', NULL, 0, '2010-05-17 14:14:44', NULL, 'C7cEYVt4bm2swX4CaXUB', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:14:44')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (2.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', '42daa404df8114260b2fafe8fea16fe45a4e63fd', NULL, 0, '2010-05-17 14:25:52', NULL, 'qlA9BJCcEaSxJ8Nw8F_9', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:25:52')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', '07ae1d4c459035bbd20e26763100223e99605da2', NULL, 0, '2010-05-17 14:27:20', NULL, '3jbC7ku_zi-L7_Qyd0H8', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:27:20')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (2.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', 'e2dafe2525425f0b8dc3b139e04adefd653d3b06', NULL, 0, '2010-05-17 14:30:04', NULL, '2_OmxoWji6PVtLVjsQSY', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:30:04')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (2.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("name", "encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "reset_password_token", "email", "created_at") VALUES('--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', 'dd89444274440b5fd270d2e457076b85ea92f319', NULL, 0, '2010-05-17 14:34:48', NULL, 'VhQVkSfzSSW4hcoDrdSZ', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:34:48')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m

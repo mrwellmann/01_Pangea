@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ProductsTest < ActionController::IntegrationTest
-  
+  include Devise::TestHelpers
   Product.delete_all
 
   
@@ -40,6 +40,8 @@ class ProductsTest < ActionController::IntegrationTest
   def addProductSombrero
     
     #TODO: login admin
+    @admin_logged_in =  Admin.make
+    sign_in :admin,  @admin_logged_in
     
     visit products_path
     click_link "New product"
