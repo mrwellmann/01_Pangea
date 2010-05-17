@@ -20359,3 +20359,461 @@ Completed in 15ms (View: 15, DB: 0) | 200 OK [http://www.example.com/products/3]
 - q
 ', 'dd89444274440b5fd270d2e457076b85ea92f319', NULL, 0, '2010-05-17 14:34:48', NULL, 'VhQVkSfzSSW4hcoDrdSZ', 0, NULL, NULL, NULL, NULL, NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 14:34:48')[0m
   [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "user_name", "reset_password_token", "email", "created_at") VALUES('90ff2c0cfd20d9f30d4a381e20ba254b77c59261', NULL, 0, '2010-05-17 15:44:59', NULL, 'DbmDQHdeJEh7K4HEyVQE', 0, NULL, NULL, NULL, NULL, '--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 15:44:59')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mProduct Delete all (0.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mProduct Delete all (0.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_up with {} and HTTP headers {}
+
+
+Processing RegistrationsController#new (for 127.0.0.1 at 2010-05-17 18:06:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"registrations"}
+Rendering template within layouts/application
+Rendering registrations/new
+Rendered shared/_devise_links (6.0ms)
+Completed in 8225ms (View: 151, DB: 3) | 200 OK [http://www.example.com/admin/sign_up]
+REQUESTING PAGE: POST /admin with {"commit"=>"Sign up", "admin"=>{"password_confirmation"=>"123456", "password"=>"123456", "user_name"=>"Markus", "email"=>"markus@m.de"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_up"}
+
+
+Processing RegistrationsController#create (for 127.0.0.1 at 2010-05-17 18:06:55) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "admin"=>{"password_confirmation"=>"[FILTERED]", "user_name"=>"Markus", "password"=>"[FILTERED]", "email"=>"markus@m.de"}, "controller"=>"registrations"}
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'markus@m.de') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "user_name", "reset_password_token", "email", "created_at") VALUES('9e3bebfe23b80963de3b20596d19f820cfcdb555', NULL, 0, '2010-05-17 16:06:55', NULL, '2P-2wS_KVG-4CFVFHskO', 0, NULL, NULL, NULL, NULL, 'Markus', NULL, 'markus@m.de', '2010-05-17 16:06:55')[0m
+Redirected to http://www.example.com/
+Completed in 63ms (DB: 2) | 302 Found [http://www.example.com/admin]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/admin"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-05-17 18:06:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mAdmin Load (2.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1[0m
+Completed in 897ms (View: 890, DB: 2) | 200 OK [http://www.example.com/]
+  [4;36;1mProduct Delete all (3.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:11:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (3.0ms)
+Completed in 6363ms (View: 75, DB: 4) | 200 OK [http://www.example.com/admin/sign_in]
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:11:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 6ms (View: 6, DB: 1) | 200 OK [http://www.example.com/admin/sign_in]
+  [4;35;1mProduct Delete all (1.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:11:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 6ms (View: 5, DB: 1) | 200 OK [http://www.example.com/admin/sign_in]
+  [4;35;1mProduct Delete all (1.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:11:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.0ms)
+Completed in 6ms (View: 6, DB: 1) | 200 OK [http://www.example.com/admin/sign_in]
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_up with {} and HTTP headers {}
+
+
+Processing RegistrationsController#new (for 127.0.0.1 at 2010-05-17 18:11:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"registrations"}
+Rendering template within layouts/application
+Rendering registrations/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://www.example.com/admin/sign_up]
+REQUESTING PAGE: POST /admin with {"commit"=>"Sign up", "admin"=>{"password_confirmation"=>"123456", "password"=>"123456", "user_name"=>"Markus", "email"=>"markus@m.de"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_up"}
+
+
+Processing RegistrationsController#create (for 127.0.0.1 at 2010-05-17 18:11:35) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "admin"=>{"password_confirmation"=>"[FILTERED]", "user_name"=>"Markus", "password"=>"[FILTERED]", "email"=>"markus@m.de"}, "controller"=>"registrations"}
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'markus@m.de') LIMIT 1[0m
+  [4;36;1mAdmin Create (0.0ms)[0m   [0;1mINSERT INTO "admins" ("encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "user_name", "reset_password_token", "email", "created_at") VALUES('85740563cb6d083463de87d4a745b8fdde161436', NULL, 0, '2010-05-17 16:11:35', NULL, 'EXsHOF3Kl4VpYS_HV8hF', 0, NULL, NULL, NULL, NULL, 'Markus', NULL, 'markus@m.de', '2010-05-17 16:11:35')[0m
+Redirected to http://www.example.com/
+Completed in 33ms (DB: 1) | 302 Found [http://www.example.com/admin]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/admin"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-05-17 18:11:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1[0m
+Completed in 788ms (View: 784, DB: 1) | 200 OK [http://www.example.com/]
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:13:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (3.0ms)
+Completed in 6132ms (View: 94, DB: 2) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:14:04) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 40ms (View: 5, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;35;1mProduct Delete all (0.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:14:04) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;35;1mProduct Delete all (0.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:14:04) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:14:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:14:05) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:14:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:14:05) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_up with {} and HTTP headers {}
+
+
+Processing RegistrationsController#new (for 127.0.0.1 at 2010-05-17 18:14:05) [GET]
+  Parameters: {"action"=>"new", "controller"=>"registrations"}
+Rendering template within layouts/application
+Rendering registrations/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 14ms (View: 10, DB: 1) | 200 OK [http://www.example.com/admin/sign_up]
+REQUESTING PAGE: POST /admin with {"commit"=>"Sign up", "admin"=>{"password_confirmation"=>"123456", "password"=>"123456", "user_name"=>"Markus", "email"=>"markus@m.de"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_up"}
+
+
+Processing RegistrationsController#create (for 127.0.0.1 at 2010-05-17 18:14:05) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "admin"=>{"password_confirmation"=>"[FILTERED]", "user_name"=>"Markus", "password"=>"[FILTERED]", "email"=>"markus@m.de"}, "controller"=>"registrations"}
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'markus@m.de') LIMIT 1[0m
+  [4;36;1mAdmin Create (0.0ms)[0m   [0;1mINSERT INTO "admins" ("encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "user_name", "reset_password_token", "email", "created_at") VALUES('464e259fec170180e4ce98cf0d73d2cbda4f12e2', NULL, 0, '2010-05-17 16:14:05', NULL, 'SdGZZY8g5p7UsqDu0I6h', 0, NULL, NULL, NULL, NULL, 'Markus', NULL, 'markus@m.de', '2010-05-17 16:14:05')[0m
+Redirected to http://www.example.com/
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/admin]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/admin"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-05-17 18:14:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1[0m
+Completed in 572ms (View: 569, DB: 0) | 200 OK [http://www.example.com/]
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:26:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (3.0ms)
+Completed in 6253ms (View: 125, DB: 1) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:26:58) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.0ms)
+Completed in 51ms (View: 4, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;35;1mProduct Delete all (1.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:26:58) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;35;1mProduct Delete all (1.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:26:58) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_in with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: POST /admin/sign_in with {"commit"=>"Sign in", "admin"=>{"password"=>"123456", "user_name"=>"Markus"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-05-17 18:26:58) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "admin"=>{"user_name"=>"Markus", "password"=>"[FILTERED]"}, "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/admin/sign_in]
+REQUESTING PAGE: GET /products with {} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_in"}
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/products]
+REQUESTING PAGE: GET /products/new with {} and HTTP headers {"HTTP_REFERER"=>"/products"}
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"products"}
+  [4;36;1mProduct Delete all (1.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+REQUESTING PAGE: GET /admin/sign_up with {} and HTTP headers {}
+
+
+Processing RegistrationsController#new (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"registrations"}
+Rendering template within layouts/application
+Rendering registrations/new
+Rendered shared/_devise_links (1.0ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://www.example.com/admin/sign_up]
+REQUESTING PAGE: POST /admin with {"commit"=>"Sign up", "admin"=>{"password_confirmation"=>"123456", "password"=>"123456", "user_name"=>"Markus", "email"=>"markus@m.de"}} and HTTP headers {"HTTP_REFERER"=>"/admin/sign_up"}
+
+
+Processing RegistrationsController#create (for 127.0.0.1 at 2010-05-17 18:26:58) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "admin"=>{"password_confirmation"=>"[FILTERED]", "user_name"=>"Markus", "password"=>"[FILTERED]", "email"=>"markus@m.de"}, "controller"=>"registrations"}
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'markus@m.de') LIMIT 1[0m
+  [4;36;1mAdmin Create (0.0ms)[0m   [0;1mINSERT INTO "admins" ("encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "user_name", "reset_password_token", "email", "created_at") VALUES('99b013ae088164a013989cda6f16e101f14b4a38', NULL, 0, '2010-05-17 16:26:58', NULL, 'p-5a_j3yTG0ct6CPtha_', 0, NULL, NULL, NULL, NULL, 'Markus', NULL, 'markus@m.de', '2010-05-17 16:26:58')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 0) | 302 Found [http://www.example.com/admin]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/admin"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-05-17 18:26:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1[0m
+Completed in 639ms (View: 635, DB: 1) | 200 OK [http://www.example.com/]
+  [4;36;1mProduct Delete all (3.0ms)[0m   [0;1mDELETE FROM "products" WHERE 1=1[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT "admins".id FROM "admins" WHERE ("admins"."email" = 'aric.smith@kautzergoyette.name') LIMIT 1[0m
+  [4;36;1mAdmin Create (1.0ms)[0m   [0;1mINSERT INTO "admins" ("encrypted_password", "last_sign_in_ip", "failed_attempts", "updated_at", "last_sign_in_at", "password_salt", "sign_in_count", "current_sign_in_ip", "current_sign_in_at", "unlock_token", "locked_at", "user_name", "reset_password_token", "email", "created_at") VALUES('df3bdc237304b6ca7c0563712a18b37c84051192', NULL, 0, '2010-05-17 16:43:03', NULL, 'JndopXCAzLijHR7vz7S7', 0, NULL, NULL, NULL, NULL, '--- 
+- f
+- l
+- m
+- i
+- j
+- l
+- f
+- p
+- a
+- q
+', NULL, 'aric.smith@kautzergoyette.name', '2010-05-17 16:43:03')[0m
+  [4;35;1mAdmin Load (1.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = 1) [0m

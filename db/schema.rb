@@ -12,7 +12,7 @@
 ActiveRecord::Schema.define(:version => 20100503221234) do
 
   create_table "admins", :force => true do |t|
-    t.string   "name",                                                :null => false
+    t.string   "user_name",                                           :null => false
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
     t.string   "password_salt",                       :default => "", :null => false
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20100503221234) do
   end
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
-  add_index "admins", ["name"], :name => "index_admins_on_name", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+  add_index "admins", ["user_name"], :name => "index_admins_on_user_name", :unique => true
 
   create_table "products", :force => true do |t|
     t.string   "title",                                                          :null => false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20100503221234) do
   add_index "products", ["title"], :name => "index_products_on_title", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "name",                                                :null => false
+    t.string   "user_name",                                           :null => false
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
     t.string   "password_salt",                       :default => "", :null => false
@@ -61,12 +61,18 @@ ActiveRecord::Schema.define(:version => 20100503221234) do
     t.integer  "failed_attempts",                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "place"
+    t.string   "zip_code"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
 
 end

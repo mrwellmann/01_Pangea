@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class ProductsTest < ActionController::IntegrationTest
-  include Devise::TestHelpers
-  Product.delete_all
+  test "signup Admin" do
+    signUpAdmin
+  end
+  
+  setup do
+    Product.delete_all
+  end
 
   
   test "create a new product and open show view" do
@@ -38,18 +43,32 @@ class ProductsTest < ActionController::IntegrationTest
   
   private
   def addProductSombrero
-    
     #TODO: login admin
-    @admin_logged_in =  Admin.make
-    sign_in :admin,  @admin_logged_in
+    loginAdmin
     
     visit products_path
     click_link "New product"
-    fill_in "Titel", :with => "Sombrero"
+    fill_in "Title", :with => "Sombrero"
     fill_in "Description", :with => "mexican sombrero"
     fill_in "Image url", :with => "sombrero.jpg"
     fill_in "Price", :with => "4.99"
     fill_in "Expirience Points", :with => "25"
     click_button "Create"
+  end
+  
+  def signUpAdmin
+    visit new_admin_registration_path
+    fill_in "User name", :with => "Markus"
+    fill_in "Email", :with => "markus@m.de"
+    fill_in "Password", :with => "123456"
+    fill_in "Password confirmation", :with => "123456"
+    click_button "Sign up"
+  end
+  
+  def loginAdmin
+    visit new_admin_session_path
+    fill_in "User name", :with => "Markus"
+    fill_in "Password", :with => "123456"
+    click_button "Sign in"
   end
 end
