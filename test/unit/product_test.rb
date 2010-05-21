@@ -10,7 +10,6 @@ class ProductTest < ActiveSupport::TestCase
     p = Product.make
     should_validate_uniqueness_of :title
   end
-  
   #throws error
 #  should_validate_format_of :image_url, :with => %r{\.(gif|jpg|png)$}i, 
 #                            :message => 'must be a URL for GIF, JPG or PNG image.'

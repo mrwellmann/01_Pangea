@@ -57,20 +57,16 @@ class ProductsControllerTest < ActionController::TestCase
     test "should update product" do
       loginAdmin
       p = Product.make
-      put :update ,:id => p.id, :product => {:title => 'test', 
-                      :description =>%{<p>Der WHOPPER® ... weiter erzählen).</p>}, 
-                      :image_url => '/images/Burger.png',
-                      :price => 1.99,
-                      :expirience_points =>10}
+      string = p.title
+        put :update ,:id => p.id, :product => {:title => 'test'}
        assert_redirected_to product_path(assigns(:product))
     end
     
-    # TODO: how to test for? render :action => "new"
-    test "should not update product" do
+   test "should not update product" do
       loginAdmin
       p = Product.make
-      put :update, :id => p.id,:product => {}
-      #how to test for? render :action => "new"
+      put :update, :id => p.id,:product => {:title => nil}
+      assert_response 200
     end
   
     test "should destroy product" do

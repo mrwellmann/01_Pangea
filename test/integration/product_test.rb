@@ -1,14 +1,9 @@
 require 'test_helper'
 
 class ProductsTest < ActionController::IntegrationTest
-  test "signup Admin" do
-    signUpAdmin
-  end
-  
   setup do
     Product.delete_all
   end
-
   
   test "create a new product and open show view" do
     assert_difference("Product.count") do
@@ -17,7 +12,6 @@ class ProductsTest < ActionController::IntegrationTest
   end
   
   test "edit a existing product" do
-    Product.delete_all # here because rcov throws test Failure ( but only rcov normal testing run without)
     addProductSombrero
     click_link "Edit"
     fill_in "Description", :with => "A mexican sombrero"
@@ -43,8 +37,8 @@ class ProductsTest < ActionController::IntegrationTest
   
   private
   def addProductSombrero
-    #TODO: login admin
-    loginAdmin
+    
+    signUpAdmin
     
     visit products_path
     click_link "New product"
@@ -56,19 +50,13 @@ class ProductsTest < ActionController::IntegrationTest
     click_button "Create"
   end
   
-  def signUpAdmin
+   def signUpAdmin
     visit new_admin_registration_path
-    fill_in "User name", :with => "Markus"
-    fill_in "Email", :with => "markus@m.de"
+    fill_in "User name", :with => "Admin"
+    fill_in "Email", :with => "admin@admin.de"
     fill_in "Password", :with => "123456"
     fill_in "Password confirmation", :with => "123456"
     click_button "Sign up"
   end
   
-  def loginAdmin
-    visit new_admin_session_path
-    fill_in "User name", :with => "Markus"
-    fill_in "Password", :with => "123456"
-    click_button "Sign in"
-  end
 end
