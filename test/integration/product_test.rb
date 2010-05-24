@@ -52,8 +52,8 @@ class ProductsTest < ActionController::IntegrationTest
   
    def signUpAdmin
     visit new_admin_registration_path
-    fill_in "User name", :with => "Admin"
-    fill_in "Email", :with => "admin@admin.de"
+    fill_in "User name", :with => "produkt"
+    fill_in "Email", :with => "produkt@produkt.de"
     fill_in "Password", :with => "123456"
     fill_in "Password confirmation", :with => "123456"
     click_button "Sign up"

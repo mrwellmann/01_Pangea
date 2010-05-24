@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.devise_for :users
   map.devise_for :admin
   

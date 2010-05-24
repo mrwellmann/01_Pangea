@@ -19,17 +19,12 @@ class ProductsControllerTest < ActionController::TestCase
       get :show, :id => p.id
       assert_response :success
   end
-
-
-    #TODO: login admin
-
-
     
-    test "should get new" do
-      loginAdmin
-      get :new
-      assert_response :success
-    end
+   test "should get new" do
+     loginAdmin
+     get :new
+     assert_response :success
+   end
   
     test "should create product" do
       loginAdmin
@@ -57,16 +52,17 @@ class ProductsControllerTest < ActionController::TestCase
     test "should update product" do
       loginAdmin
       p = Product.make
-      string = p.title
-        put :update ,:id => p.id, :product => {:title => 'test'}
-       assert_redirected_to product_path(assigns(:product))
+      put :update ,:id => p.id, :product => {:title => 'test'}
+      assert_response :Found
+      assert_redirected_to product_path(assigns(:product))
     end
     
    test "should not update product" do
       loginAdmin
       p = Product.make
       put :update, :id => p.id,:product => {:title => nil}
-      assert_response 200
+      #TODO: how to check tha it wen wrong?
+      assert_response :ok
     end
   
     test "should destroy product" do
