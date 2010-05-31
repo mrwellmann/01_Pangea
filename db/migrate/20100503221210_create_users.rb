@@ -14,6 +14,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :place
       t.string :zip_code
       t.string :country
+      t.integer :expirience_points, :default =>0
 
       t.timestamps
     end

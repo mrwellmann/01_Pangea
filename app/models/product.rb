@@ -14,7 +14,6 @@ class Product < ActiveRecord::Base
                                                 :greater_than_or_equal_to => 0,
                                                 :message => 'must be an integer and greater or equal than 0'
   
-
-  
+  attr_accessible :title, :description, :image_url, :price,:expirience_points
   
 end
