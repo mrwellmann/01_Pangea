@@ -4,9 +4,6 @@ log/*.log
 .loadpath
 .project
 tmp/*
-
 coverage/*
-
-log
-/*
+log/*
 .bundle/*
