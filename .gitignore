@@ -3,7 +3,8 @@ db/*.sqlite3
 log/*.log
 *~
 .loadpath
-.project/tmp
-/coverage
-/log
-.bundle
+.project
+tmp/*
+coverage/*
+log/*
+.bundle/*
