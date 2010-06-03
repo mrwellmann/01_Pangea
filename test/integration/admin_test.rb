@@ -16,6 +16,7 @@ class AdminsTest < ActionController::IntegrationTest
     fill_in "Password", :with => "admin_pw"
     fill_in "Password confirmation", :with => "admin_pw"
     click_button "Sign up"
+    #signed_in? :admin
     assert_response :Found
 
   end

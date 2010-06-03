@@ -6,3 +6,4 @@ log/*.log
 .project/tmp
 /coverage
 /log
+.bundle
