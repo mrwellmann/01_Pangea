@@ -16,6 +16,10 @@
     <%= f.text_field :image_url %>
   </p>
   <p>
+	<%= f.label :continent_id, "From"%><br />
+	<%= f.collection_select(:continent_id,@continent,:id,:continent_name,{:prompt => true})%>
+  </p>
+  <p>
     <%= f.label :price, "Price"%><br />
     <%= f.text_field :price %>
   </p>
@@ -24,9 +28,10 @@
     <%= f.text_field :expirience_points %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+	<%= submit_tag 'Update'%>
   </p>
 <% end %>
+
 
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>

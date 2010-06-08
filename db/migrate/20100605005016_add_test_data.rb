@@ -8,6 +8,7 @@ class AddTestData < ActiveRecord::Migration
                     :price => 1.99,
                     :expirience_points =>10)
                     
+    
     Product.create( :title => 'WHOPPER® Jr.' ,
                     :description => %{<p>Manchmal ist weniger eben mehr. Der WHOPPER® Jr. ist die kleine Ausgabe des original WHOPPER® - steht seinem großen Bruder aber in nichts nach. Bestes Beef auf einem Sesambrötchen, umschmeichelt von saftigen Tomaten, knackigem Salat, cremiger Salatmayonnaise, Ketchup, Gurken und frischen Zwiebeln - gut gemacht, Junior!.</p>},
                     :image_url => '/images/Burger.png' ,
@@ -43,3 +44,4 @@ class AddTestData < ActiveRecord::Migration
     Product.delete_all
   end
 end
+

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100503221234) do
+ActiveRecord::Schema.define(:version => 20100605100105) do
 
   create_table "admins", :force => true do |t|
     t.string   "user_name",                                           :null => false
@@ -33,12 +33,56 @@ ActiveRecord::Schema.define(:version => 20100503221234) do
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
   add_index "admins", ["user_name"], :name => "index_admins_on_user_name", :unique => true
 
+  create_table "continents", :force => true do |t|
+    t.string   "continent_name", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foodkinds", :force => true do |t|
+    t.string   "foodkind_name", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foods", :force => true do |t|
+    t.string   "food_name",                        :null => false
+    t.text     "description",                      :null => false
+    t.string   "image_url",                        :null => false
+    t.integer  "price",                            :null => false
+    t.integer  "expirience_points", :default => 0, :null => false
+    t.integer  "continent_id"
+    t.integer  "foodkind_id"
+    t.integer  "menue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menues", :force => true do |t|
+    t.string   "menue_name"
+    t.text     "description"
+    t.integer  "expirience_points"
+    t.decimal  "price"
+    t.integer  "food_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menues_foods", :id => false, :force => true do |t|
+    t.integer "menue_id", :null => false
+    t.integer "food_id",  :null => false
+  end
+
+  add_index "menues_foods", ["food_id"], :name => "index_menues_foods_on_food_id"
+  add_index "menues_foods", ["menue_id", "food_id"], :name => "index_menues_foods_on_menue_id_and_food_id", :unique => true
+
   create_table "products", :force => true do |t|
     t.string   "title",                                                          :null => false
     t.text     "description",                                                    :null => false
     t.string   "image_url",                                                      :null => false
-    t.decimal  "price",             :precision => 8, :scale => 2,                :null => false
-    t.integer  "expirience_points",                               :default => 0, :null => false
+    t.decimal  "price",             :precision => 6, :scale => 2,                :null => false
+    t.integer  "expirience_points",                               :default => 0
+    t.integer  "continent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20100503221234) do
     t.string   "place"
     t.string   "zip_code"
     t.string   "country"
+    t.integer  "expirience_points",                   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

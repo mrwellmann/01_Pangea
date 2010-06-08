@@ -6,6 +6,7 @@ source "http://gemcutter.org"
   gem 'rack', 	"~> 1.0.1"
   gem 'rails', 	"~> 2.3.5"
   gem 'sqlite3-ruby', :require => "sqlite3"
+  gem 'inherited_resources', "~> 1.0.6"
   
 
 # bundler requires these gems in all environments

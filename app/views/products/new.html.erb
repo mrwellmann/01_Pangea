@@ -15,6 +15,10 @@
     <%= f.label :image_url, "Image url"%><br />
     <%= f.text_field :image_url %>
   </p>
+   <p>
+	<%= f.label :continent_id, "From"%><br />
+	<%=f.collection_select(:continent_id,@continent,:id,:continent_name,{:prompt => true})%>
+  </p>
   <p>
     <%= f.label :price, "Price"%><br />
     <%= f.text_field :price %>

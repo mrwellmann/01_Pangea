@@ -6,7 +6,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :image_url, :null => false 
       t.decimal :price, :null => false, :precision => 6, :scale => 2
       t.integer :expirience_points, :default =>0
-
+      t.integer :continent_id
+      
       t.timestamps
     end
     

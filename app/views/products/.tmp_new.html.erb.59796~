@@ -1,0 +1,31 @@
+<h1>New product</h1>
+
+<% form_for(@product) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title, "Title" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description, "Description"  %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :image_url, "Image url"%><br />
+    <%= f.text_field :image_url %>
+  </p>
+  <p>
+    <%= f.label :price, "Price"%><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :expirience_points, "Expirience Points" %><br />
+    <%= f.text_field :expirience_points %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', products_path %>

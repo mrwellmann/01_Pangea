@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  belongs_to :continent
+   
+  
   validates_presence_of :title, :description, :image_url, :price, :expirience_points
   
   validates_uniqueness_of :title
@@ -14,6 +17,7 @@ class Product < ActiveRecord::Base
                                                 :greater_than_or_equal_to => 0,
                                                 :message => 'must be an integer and greater or equal than 0'
   
-  attr_accessible :title, :description, :image_url, :price,:expirience_points
+  attr_accessible :title, :description, :image_url, :price,:expirience_points,:continent_id
   
+
 end

@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :continents
+
+  map.resources :foods
+
+  map.resources :menues
+
+  map.resources :menues
+
+  map.resources :foodkinds
+
 
   map.devise_for :users
   map.devise_for :admin

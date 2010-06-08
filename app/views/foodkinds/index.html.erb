@@ -1,0 +1,20 @@
+<h1>Listing foodkinds</h1>
+
+<table>
+  <tr>
+    <th>Foodkind name</th>
+  </tr>
+
+<% @foodkinds.each do |foodkind| %>
+  <tr>
+    <td><%=h foodkind.foodkind_name %></td>
+    <td><%= link_to 'Show', foodkind %></td>
+    <td><%= link_to 'Edit', edit_foodkind_path(foodkind) %></td>
+    <td><%= link_to 'Destroy', foodkind, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New foodkind', new_foodkind_path %>

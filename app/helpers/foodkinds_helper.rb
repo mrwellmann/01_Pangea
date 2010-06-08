@@ -1,0 +1,2 @@
+module FoodkindsHelper
+end
