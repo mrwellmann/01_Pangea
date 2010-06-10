@@ -1,10 +1,11 @@
 class Product < ActiveRecord::Base
   belongs_to :continent
+  has_and_belongs_to_many :wish_lists
    
   
-  validates_presence_of :title, :description, :image_url, :price, :expirience_points
+  validates_presence_of :product_name, :image_url, :price, :expirience_points
   
-  validates_uniqueness_of :title
+  validates_uniqueness_of :product_name
                                     
   validates_format_of :image_url, :with => %r{\.(gif|jpg|png)$}i, 
                                   :message => 'must be a URL for GIF, JPG or PNG image.'
@@ -17,7 +18,7 @@ class Product < ActiveRecord::Base
                                                 :greater_than_or_equal_to => 0,
                                                 :message => 'must be an integer and greater or equal than 0'
   
-  attr_accessible :title, :description, :image_url, :price,:expirience_points,:continent_id
+  attr_accessible :product_name, :description, :image_url, :price,:expirience_points,:continent_id
   
 
 end

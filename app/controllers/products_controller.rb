@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-   before_filter :authenticate_admin!, :except => [:show, :index]
+   #before_filter :authenticate_admin!, :except => [:show, :index]
    
    
    #optional_belongs_to :continent
@@ -19,19 +19,20 @@ class ProductsController < InheritedResources::Base
  
   def new
     @product = Product.new
-    @continent = Continent.find(:all, :order => "continent_name" )
+    connected_tables
     new!
   end
 
   def edit
     @product = Product.find(params[:id])    
-    @continent = Continent.find(:all, :order => "continent_name" )
+    connected_tables
     edit!
   end
+  
 =begin
   def create
     @product = Product.new(params[:product])
-    #@product.continent = Continent.find(params[:product]["continent_id"])
+    #@product.continent = Continent.find(params[:product]["continent_id"]) #is her because forgotten to add attr_accessible continent_id
 
     create!
 #    if @product.save
@@ -61,5 +62,10 @@ class ProductsController < InheritedResources::Base
 #    redirect_to(products_url)
 #  end
 =end
+
+private
   
+  def connected_tables
+    @continent = Continent.find(:all, :order => "continent_name" )
+  end
 end

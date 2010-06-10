@@ -5,6 +5,8 @@ class CreateContinents < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :continents, :continent_name, :unique => true
         
     Continent.create( :continent_name => 'Amerika')
     Continent.create( :continent_name => 'North America')

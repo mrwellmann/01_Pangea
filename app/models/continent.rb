@@ -3,5 +3,6 @@ class Continent < ActiveRecord::Base
   has_many :products, :dependent => :nullify
   
    validates_presence_of :continent_name
-
+   
+   attr_accessible :continent_name
 end

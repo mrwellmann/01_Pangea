@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :wish_lists
+
   map.resources :continents
 
   map.resources :foods

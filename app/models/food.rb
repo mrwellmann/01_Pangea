@@ -3,7 +3,7 @@ class Food< ActiveRecord::Base
   belongs_to :foodkind
   has_and_belongs_to_many :menue
   
-  validates_presence_of :food_name, :description, :image_url, :price, :expirience_points
+  validates_presence_of :food_name, :image_url, :price, :expirience_points, :foodkind_id
   
   validates_uniqueness_of :food_name
                                     
@@ -19,5 +19,5 @@ class Food< ActiveRecord::Base
                                                 :message => 'must be an integer and greater or equal than 0'
   
    attr_accessible :food_name, :description, :image_url, :price,:expirience_points,
-                    :continent_id,:foodkind_id,:menue_id
+                    :continent_id, :foodkind_id
 end

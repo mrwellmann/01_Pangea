@@ -6,11 +6,15 @@ class CreateFoodkinds < ActiveRecord::Migration
       t.timestamps
     end
     
-    Foodkind.create( :foodkind_name => 'Drink')
-    Foodkind.create( :foodkind_name => 'Breakfest')
-    Foodkind.create( :foodkind_name => 'Lunch')
-    Foodkind.create( :foodkind_name => 'Dessert')
-    Foodkind.create( :foodkind_name => 'Aperitif')
+    add_index :foodkinds, :foodkind_name, :unique => true
+    
+    Foodkind.create( :foodkind_name => 'Drinks')
+    Foodkind.create( :foodkind_name => 'Breakfests')
+    Foodkind.create( :foodkind_name => 'Lunchs')
+    Foodkind.create( :foodkind_name => 'Salads')    
+    Foodkind.create( :foodkind_name => 'Sides')
+    Foodkind.create( :foodkind_name => 'Desserts')
+
 
   end
 

@@ -5,7 +5,7 @@
 
 	<td class="list-description">
 		<dl>
-			<dt><%=h product.title%></dt>
+			<dt><%=h product.product_name%></dt>
 			<dd><%=h truncate(product.description.gsub(/<.*?>/,''),:length =>50)%></dd>
 		</dl>
 	</td>
