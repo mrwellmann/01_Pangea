@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(:version => 20100610214445) do
 
   add_index "foods", ["food_name"], :name => "index_foods_on_food_name", :unique => true
 
+  create_table "foods_menues", :id => false, :force => true do |t|
+    t.integer "menue_id", :null => false
+    t.integer "food_id",  :null => false
+  end
+
+  add_index "foods_menues", ["food_id"], :name => "index_foods_menues_on_food_id"
+  add_index "foods_menues", ["menue_id", "food_id"], :name => "index_foods_menues_on_menue_id_and_food_id", :unique => true
+
   create_table "menues", :force => true do |t|
     t.string   "menue_name",                                                     :null => false
     t.text     "description"
@@ -74,14 +82,6 @@ ActiveRecord::Schema.define(:version => 20100610214445) do
   end
 
   add_index "menues", ["menue_name"], :name => "index_menues_on_menue_name", :unique => true
-
-  create_table "menues_foods", :id => false, :force => true do |t|
-    t.integer "menue_id", :null => false
-    t.integer "food_id",  :null => false
-  end
-
-  add_index "menues_foods", ["food_id"], :name => "index_menues_foods_on_food_id"
-  add_index "menues_foods", ["menue_id", "food_id"], :name => "index_menues_foods_on_menue_id_and_food_id", :unique => true
 
   create_table "products", :force => true do |t|
     t.string   "product_name",                                                   :null => false

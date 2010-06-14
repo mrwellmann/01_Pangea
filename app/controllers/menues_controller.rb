@@ -13,9 +13,11 @@ class MenuesController < InheritedResources::Base
 
 end
 
-#  def add_food (food)
-#    
-#  end
+def update
+  #params[:product][:category_ids] ||= []
+  @product = Product.find(params[:id])
+  update!
+end
 
   def create
     @menue = Menue.new(params[:menue])

@@ -1,30 +1,35 @@
 <h1>Editing menue</h1>
 
-<% form_for(@menue) do |f| %>
-  <%= f.error_messages %>
+<% form_tag '/menues/update/'+@menue.id.to_s do %>
+
+  <%= error_messages_for 'menue' %>
 
   <p>
-    <%= f.label :menue_name %><br />
-    <%= f.text_field :menue_name %>
+    <%= label :meune, :menue_name %><br />
+    <%= text_field_tag 'menue[menue_name]', @menue.menue_name %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= label :meune, :description %><br />
+    <%= text_area_tag 'menue[description]',  @menue.description %>
   </p>
   <p>
-    <%= f.label :expirience_points %><br />
-    <%= f.text_field :expirience_points %>
+    <%= label :meune, :expirience_points %><br />
+    <%= text_field_tag 'menue[expirience_points]',  @menue.expirience_points %>
   </p>
   <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= label :meune, :price %><br />
+    <%= text_field_tag 'menue[price]',  @menue.price %>
   </p>
-  <p>
-    <%= f.label :food_id %><br />
-    <%= f.text_field :food_id %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
+	<p>
+	<%for food in Food.find(:all)%>
+		<div>
+		<%= check_box_tag "menue[food_ids][]",food.id, @menue.foods.include?(food)%>
+		<%= food.food_name%>
+		</div>
+	<% end %>
+	</p>
+	<p>
+    <%= submit_tag 'Update' %>
   </p>
 <% end %>
 

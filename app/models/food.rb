@@ -19,5 +19,5 @@ class Food< ActiveRecord::Base
                                                 :message => 'must be an integer and greater or equal than 0'
   
    attr_accessible :food_name, :description, :image_url, :price,:expirience_points,
-                    :continent_id, :foodkind_id
+                    :continent_id, :foodkind_id, :menue_ids 
 end

@@ -9,7 +9,7 @@ class Menue < ActiveRecord::Base
   validates_numericality_of :price, :greater_than_or_equal_to => 0.01, 
                                     :message => 'has to be a number and at least 0.01 €'
    
-   attr_accessible :menue_name, :description, :image_url, :price, :expirience_points 
+   attr_accessible :menue_name, :description, :image_url, :price, :expirience_points, :food_ids 
    
 
   def add_food(food)

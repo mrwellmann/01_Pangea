@@ -32,10 +32,6 @@
     <%= f.collection_select(:foodkind_id,@foodkind,:id,:foodkind_name,{:prompt => true}) %>
   </p>
   <p>
-    <%= f.label :menue_id %><br />
-    <%= f.text_field :menue_id %>
-  </p>
-  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

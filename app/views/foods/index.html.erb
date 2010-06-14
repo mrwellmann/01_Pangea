@@ -15,7 +15,6 @@
     <th>Expirience points</th>
     <th>Continent</th>
     <th>Foodkind</th>
-    <th>Menue</th>
   </tr>
 
 <% @foods.each do |food| %>
@@ -35,7 +34,6 @@
 		<%=h food.foodkind.foodkind_name%>
 	<%end%>
 	</td>			
-    <td><%=h food.menue_id %></td>
     <td><%= link_to 'Show', food %></td>
     <td><%= link_to 'Edit', edit_food_path(food) %></td>
     <td><%= link_to 'Destroy', food, :confirm => 'Are you sure?', :method => :delete %></td>
