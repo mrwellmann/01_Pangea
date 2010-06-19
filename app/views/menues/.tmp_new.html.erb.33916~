@@ -1,0 +1,112 @@
+<h1>New menue</h1>
+
+	
+<% form_for(@menue) do |f| %>
+	<%= f.error_messages %>
+
+
+<table >
+  <tr>
+    <td >
+	    <p>
+		    <%= f.label :menue_name %><br />
+		    <%= f.text_field :menue_name %>
+		  </p>
+		</td>
+    <td rowspan="5">
+	    <p>
+		    <%= f.label :description %><br />
+		    <%= f.text_area :description %>
+		  </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+		  <p>
+		    <%= f.label :image_url %><br />
+		    <%= f.text_field :image_url %>
+		  </p>
+		</td>
+  </tr>
+  <tr>
+    <td>
+	    <p>
+		    <%= f.label :expirience_points %><br />
+		    <%= f.text_field :expirience_points %>
+		  </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+	    <p>
+	    <%= f.label :price %><br />
+	    <%= f.text_field :price %>
+		  </p>
+    </td>
+  </tr>
+	  <tr>
+    <td>
+	    <p>
+	    <%= f.submit 'Create' %>
+		  </p>
+    </td>
+  </tr>
+</table>
+	  
+	  
+<%if @foodkind_list != nil%>
+
+	<table bgcolor="#D6D6D6" >
+		<%for foodkind in @foodkind_list%>
+		    <tr>
+				<th bgcolor="#C6C6C6" align="left" scope="col"><%=h foodkind.foodkind_name %></th>
+				<%0.upto(@foods_of_foodkind.size-1) do |x| %>
+					
+					<%if @foods_of_foodkind[x]['foodkind_id'] == foodkind.id%>
+						<td bgcolor="#C6C6C6" >
+							<%food_name = @foods_of_foodkind[x]['food_name'] %>
+							<%food_id = @foods_of_foodkind[x]['id'] %>
+							
+	
+							<input name="food_id" type="checkbox" enabled/>
+							<%=h food_name%>	
+						</td>
+					<%end%>
+					
+				<%end%>
+				</tr>
+		<%end%>
+	</table>
+	
+	<br>
+	
+	<table border=1 >
+		<%for foodkind in @foodkind_list%>
+		    
+				<td align="left"><%=h foodkind.foodkind_name %>
+				
+				<%0.upto(@foods_of_foodkind.size-1) do |i| %>
+				
+					<p style="background:#0F3">
+						<%if @foods_of_foodkind[i]['foodkind_id'] == foodkind.id%>
+							<%food_name = @foods_of_foodkind[i]['food_name'] %>
+							<%food_id = @foods_of_foodkind[i]['id'] %>
+							
+							
+							<%= f.check_box(:add_foo, {},@foods_of_foodkind[i], @foods_of_foodkind[i])%>
+							
+							<%=h food_name%>	
+							<br>
+						<%end%>
+					</p>
+					
+				<%end%>
+				</td>
+		<%end%>
+	</table>
+	 
+<%end%>
+
+
+	<% end %>
+<%= link_to 'Back', menues_path %>

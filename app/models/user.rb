@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :wish_lists
+  has_many :wishlists
   
     devise :database_authenticatable, :recoverable, :validatable, :lockable,
          :rememberable, :registerable, :trackable 

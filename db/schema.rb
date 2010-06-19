@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100610214445) do
+ActiveRecord::Schema.define(:version => 20100615175512) do
 
   create_table "admins", :force => true do |t|
     t.string   "user_name",                                           :null => false
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(:version => 20100610214445) do
   create_table "foods", :force => true do |t|
     t.string   "food_name",                        :null => false
     t.text     "description"
-    t.string   "image_url",                        :null => false
-    t.integer  "price",                            :null => false
-    t.integer  "expirience_points", :default => 0, :null => false
+    t.string   "image_url"
+    t.integer  "price"
+    t.integer  "expirience_points", :default => 0
     t.integer  "continent_id"
     t.integer  "foodkind_id",                      :null => false
     t.datetime "created_at"
@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(:version => 20100610214445) do
 
   create_table "menues", :force => true do |t|
     t.string   "menue_name",                                                     :null => false
+    t.string   "image_url"
     t.text     "description"
-    t.string   "image_url",                                                      :null => false
-    t.decimal  "price",             :precision => 6, :scale => 2,                :null => false
-    t.integer  "expirience_points",                               :default => 0, :null => false
+    t.decimal  "price",             :precision => 6, :scale => 2
+    t.integer  "expirience_points",                               :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(:version => 20100610214445) do
   create_table "products", :force => true do |t|
     t.string   "product_name",                                                   :null => false
     t.text     "description"
-    t.string   "image_url",                                                      :null => false
-    t.decimal  "price",             :precision => 6, :scale => 2,                :null => false
+    t.string   "image_url"
+    t.decimal  "price",             :precision => 6, :scale => 2
     t.integer  "expirience_points",                               :default => 0
     t.integer  "continent_id"
     t.datetime "created_at"
@@ -127,19 +127,20 @@ ActiveRecord::Schema.define(:version => 20100610214445) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
 
-  create_table "wish_lists", :force => true do |t|
-    t.string   "wish_list_name"
-    t.integer  "user_id"
+  create_table "wishlists", :force => true do |t|
+    t.string   "wishlist_name", :default => "New Wishlist", :null => false
+    t.integer  "user_id",                                   :null => false
+    t.string   "visibility",    :default => "public",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "wish_lists_products", :id => false, :force => true do |t|
-    t.integer "wish_list_id", :null => false
-    t.integer "product_id",   :null => false
+  create_table "wishlists_products", :id => false, :force => true do |t|
+    t.integer "wishlist_id", :null => false
+    t.integer "user_id",     :null => false
   end
 
-  add_index "wish_lists_products", ["product_id"], :name => "index_wish_lists_products_on_product_id"
-  add_index "wish_lists_products", ["wish_list_id", "product_id"], :name => "index_wish_lists_products_on_wish_list_id_and_product_id", :unique => true
+  add_index "wishlists_products", ["user_id", "wishlist_id"], :name => "index_wishlists_products_on_user_id_and_wishlist_id", :unique => true
+  add_index "wishlists_products", ["wishlist_id"], :name => "index_wishlists_products_on_wishlist_id"
 
 end

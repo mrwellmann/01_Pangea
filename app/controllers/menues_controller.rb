@@ -1,36 +1,42 @@
 class MenuesController < InheritedResources::Base
-
+  before_filter :check_somebody_logged_in , :except => [:show, :index]
+  
   respond_to :html, :xml
   
-   def new
-    @foodkind_list = Foodkind.find(:all, :order => "id")
-    @foods_of_foodkind = Food.find(:all, :order => "foodkind_id")
-    @menue = Menue.new
-
-    @blub
-    
-    #new!
-
-end
-
-def update
-  #params[:product][:category_ids] ||= []
-  @product = Product.find(params[:id])
-  update!
-end
-
-  def create
-    @menue = Menue.new(params[:menue])
-    #@product.continent = Continent.find(params[:product]["continent_id"]) #is her because forgotten to add attr_accessible continent_id
-    #@menue.add_food 
-    create!
-#    if @product.save
-#      flash[:notice] = 'Product was successfully created.'
-#      redirect_to(@product)
-#    else
-#      render :action => "new"
-#    end
+  def index
+    generate_lists_from_connected_tables
+    index!
+  end
+  
+  def new
+    @menues = Menue.new
+    generate_lists_from_connected_tables
+    new!
+  end
+  
+  def edit
+    @menues = Menue.find(params[:id])    
+    generate_lists_from_connected_tables
+    edit!
   end
 
+  def create
+    params[:menue][:food_ids] ||= []
+    @menues = Menue.new(params[:menue])
+    create!
+  end
+  
+  def update
+    params[:menue][:food_ids] ||= []
+    @menues = Menue.find(params[:id])
+    update!
+  end
+
+private
+  
+  def generate_lists_from_connected_tables
+    @foodkind_list = Foodkind.find(:all)
+    @foods_list = Food.find(:all, :order => "foodkind_id")
+  end
   
 end

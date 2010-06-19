@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :continent
-  has_and_belongs_to_many :wish_lists
+  has_and_belongs_to_many :wishlists
    
   
   validates_presence_of :product_name, :image_url, :price, :expirience_points

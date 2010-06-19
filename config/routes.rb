@@ -1,5 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :wish_lists
+  
+  map.devise_for :users
+  map.devise_for :admin
+  
+  map.resources :home, :only => :index
+  map.resources :admins, :only => :index
+  
+  map.resources :wishlists
 
   map.resources :continents
 
@@ -9,13 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :foodkinds
 
-  map.devise_for :users
-  map.devise_for :admin
-  
   map.resources :products
-
-  map.resources :home, :only => :index
-  map.resources :admins, :only => [:index]
 
   map.root :controller => :home
   
@@ -60,6 +61,8 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  
+  #map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
+  
 end

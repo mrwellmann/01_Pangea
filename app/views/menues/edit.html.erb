@@ -1,36 +1,9 @@
 <h1>Editing menue</h1>
 
-<% form_tag '/menues/update/'+@menue.id.to_s do %>
-
-  <%= error_messages_for 'menue' %>
-
-  <p>
-    <%= label :meune, :menue_name %><br />
-    <%= text_field_tag 'menue[menue_name]', @menue.menue_name %>
-  </p>
-  <p>
-    <%= label :meune, :description %><br />
-    <%= text_area_tag 'menue[description]',  @menue.description %>
-  </p>
-  <p>
-    <%= label :meune, :expirience_points %><br />
-    <%= text_field_tag 'menue[expirience_points]',  @menue.expirience_points %>
-  </p>
-  <p>
-    <%= label :meune, :price %><br />
-    <%= text_field_tag 'menue[price]',  @menue.price %>
-  </p>
-	<p>
-	<%for food in Food.find(:all)%>
-		<div>
-		<%= check_box_tag "menue[food_ids][]",food.id, @menue.foods.include?(food)%>
-		<%= food.food_name%>
-		</div>
-	<% end %>
-	</p>
-	<p>
-    <%= submit_tag 'Update' %>
-  </p>
+<% form_tag @menue, :method=>"put" do %>
+	
+	<%= render:partial => 'insert_data', :locals => { :button_name => "Update" } %>
+		
 <% end %>
 
 <%= link_to 'Show', @menue %> |

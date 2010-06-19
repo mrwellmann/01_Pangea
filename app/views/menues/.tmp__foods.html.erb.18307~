@@ -1,0 +1,21 @@
+<%if @foodkind_list != nil%>
+	<table border=1 >
+		<%for foodkind in @foodkind_list%>
+		    
+				<td align="left"><%=h foodkind.foodkind_name %>
+				
+				<%for food in @foods_list%>
+				
+					<p style="background:#0F3">
+						<%if food.foodkind_id == foodkind.id %>
+							<%= check_box_tag "menue[food_ids][]",food.id, @menue.foods.include?(food)%>
+							<%=h food.food_name%>		
+							<br>
+						<%end%>
+					</p>
+					
+				<%end%>
+				</td>
+		<%end%>
+	</table>
+<%end%>

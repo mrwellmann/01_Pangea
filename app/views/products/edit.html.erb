@@ -17,7 +17,7 @@
   </p>
   <p>
 	<%= f.label :continent_id, "From"%><br />
-	<%= f.collection_select(:continent_id,@continent,:id,:continent_name,{:prompt => true})%>
+	<%= f.collection_select(:continent_id,@continent_list,:id,:continent_name,{:prompt => true})%>
   </p>
   <p>
     <%= f.label :price, "Price"%><br />
@@ -28,7 +28,7 @@
     <%= f.text_field :expirience_points %>
   </p>
   <p>
-	<%= submit_tag 'Update'%>
+		<%= f.submit 'Update' %>
   </p>
 <% end %>
 

@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
+  
+  
+  def check_somebody_logged_in
+    unless (user_signed_in? || admin_signed_in?)
+      authenticate_user!
+    end    
+  end
 end

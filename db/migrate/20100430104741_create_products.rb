@@ -3,8 +3,8 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :product_name, :null => false
       t.text :description
-      t.string :image_url,    :null => false 
-      t.decimal :price,       :null => false, :precision => 6, :scale => 2
+      t.string :image_url
+      t.decimal :price,       :precision => 6, :scale => 2
       t.integer :expirience_points, :default =>0
       t.integer :continent_id
       
