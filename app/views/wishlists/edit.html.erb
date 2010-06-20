@@ -1,24 +1,6 @@
 <h1>Editing wishlist</h1>
 
-<% form_for(@wishlist) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :wishlist_name %><br />
-    <%= f.text_field :wishlist_name %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :visibility %><br />
-    <%= f.text_field :visibility %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+<%= render :partial => 'insert_data', :locals => { :button_name => "Update" } %>
 
 <%= link_to 'Show', @wishlist %> |
 <%= link_to 'Back', wishlists_path %>

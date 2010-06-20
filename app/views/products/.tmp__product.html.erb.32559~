@@ -26,7 +26,7 @@
 			<% if @wishlists != nil %>
 				This item is on your Whishlist: 
 				<% for wishlist in @wishlists %>
-					<% if wishlist.products.exists?(product)%>
+					<% if wishlist.findProduct(product)%>
 						 <%=wishlist.wishlist_name%> 
 					<% end %>
 				<% end %>	

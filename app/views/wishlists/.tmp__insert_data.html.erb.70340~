@@ -1,0 +1,15 @@
+<% form_for(@wishlist) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :wishlist_name %><br />
+    <%= f.text_field :wishlist_name %>
+  </p>
+  <p>
+    <%= f.label :visibility %><br />
+		<%= select_tag(:visibility, ) %>
+  </p>
+  <p>
+    <%= submit_tag button_name "<option>Private </option><option>Public </option>"%>
+  </p>
+<% end %>

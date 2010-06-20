@@ -7,6 +7,4 @@
 </div>
 
 <br/>
-<% if admin_signed_in? %> 
-	<%= link_to 'New product', new_product_path %>
-<% end %>		
+<%= link_to 'New product', new_product_path %>

@@ -35,18 +35,15 @@
   <%=h @product.expirience_points %>
 </p>
 <p>
-	<% if @wishlists != nil %>
-		<b>Add to Wishlist:</b>
-
-			
-			<% form_for(@product) do |f| %>	
-		  	<%= f.error_messages %>
-				<%= f.collection_select(:wishlist_ids, @wishlists, :id, :wishlist_name,{},
+	<b>Add to Wishlist:</b>
+	<% form_for(@product) do |f| %>
+		<% if @wishlists != nil %>	
+  			<%= f.error_messages %>
+				<%= f.collection_select(:wishlist_ids, @wishlists, :id, :wishlist_name,
+						{:include_blank => true},
 						{:multiple => true, :wishlist_name => (check_box_tag 'product[:wishlist_ids][]')}) %>
-		    <%= f.submit 'Add' %> <%= link_to 'New List', new_wishlist_path %>
-			<% end %>
-
-		
+    		<%= f.submit 'Add' %>
+		<% end %>
 	 <% end %>		
 </p>
 

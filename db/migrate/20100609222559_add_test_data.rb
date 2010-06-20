@@ -4,7 +4,7 @@ class AddTestData < ActiveRecord::Migration
     Food.delete_all
     
     #Products
-    Product.create( :product_name => 'Product WHOPPER®' ,
+    Product.create( :product_name => 'Pniata' ,
                     :description => %{<p>Der WHOPPER® bleibt unsere ungeschlagene Nummer eins. Flame-grilled Beef, frische Tomaten, knackiger Salat, cremige Salatmayonnaise, Ketchup, würzige Gurken und Zwiebeln zwischen zwei Sesambrötchenhälften, das ist sein Geheimnis ... Korrektur, das war sein Geheimnis. Bis eben (schon okay, du kannst es ruhig weiter erzählen).</p>},
                     :image_url => '/images/Burger.png' ,
                     :price => 1.99,

@@ -1,0 +1,33 @@
+<h1>Listing menues</h1>
+
+<table border=1 >
+  <tr>
+    <th>Menue name</th>
+    <th>Description</th>
+    <th>Expirience points</th>
+    <th>Price</th>
+  </tr>
+
+<% @menues.each do |menue| %>
+  <tr>
+    <td><%=h menue.menue_name %></td>
+    <td>
+	    <%=h menue.description%><br>
+			Ingredients:
+			<%for food in menue.foods%>
+					<%=	food.food_name %>
+			<% end %>
+		</td>
+    <td><%=h menue.expirience_points %></td>
+    <td><%=h menue.price %></td>
+		
+    <td><%= link_to 'Show', menue %></td>
+    <td><%= link_to 'Edit', edit_menue_path(menue) %></td>
+    <td><%= link_to 'Destroy', menue, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New menue', new_menue_path %>

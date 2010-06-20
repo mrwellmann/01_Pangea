@@ -23,19 +23,15 @@
 	<td class="list-actions">
 		<%= link_to 'Show', product %><br/> 
 		
-			<% if @wishlists != nil %>
-				This item is on your Whishlist: 
-				<% for wishlist in @wishlists %>
-					<% if wishlist.products.exists?(product)%>
-						 <%=wishlist.wishlist_name%> 
-					<% end %>
-				<% end %>	
-			<% end %>
-
+		<% if user_signed_in? %>
+			<% if @first_wishlist != nil %>
+				<%=link_to 'Add to Wishlist', @first_wishlist<<Product%>
+			<% end %>	
+		<% end %>	
+			 
 		<% if admin_signed_in? %>                                             
 			<%= link_to 'Edit', edit_product_path(product) %><br/>                            
 			<%= link_to 'Delete', product, :confirm => 'Do you realy want to delete this shop item?', :method => :delete %>	
 		<% end %>				
 	</td>
-	
 </tr>

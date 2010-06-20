@@ -1,0 +1,22 @@
+<% form_for(@wishlist) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :wishlist_name %><br />
+    <%= f.text_field :wishlist_name %>
+  </p>
+  <p>
+    <%= f.label :visibility %><br />
+		<%= f.select :visibility, options_for_select([['Public','Public'], ['Private', 'Private']]) %>
+  </p>
+	<% unless @wishlist.products.empty?%>
+		<% for product in @wishlist.products %>
+			<%= link_to product.product_name, product %>
+			<%= button_to_remote "Removve", edit_wishlist_path(@wishlist)%>
+			<br />
+		<% end %>
+	<% end %>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>

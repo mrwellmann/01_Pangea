@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-   #before_filter :authenticate_admin!, :except => [:show, :index]
+   before_filter :authenticate_admin!, :except => [:show, :index, :update]
    
    
    #optional_belongs_to :continent
@@ -9,13 +9,19 @@ class ProductsController < InheritedResources::Base
    
 #geting done by inherited_resources so cracy   
 
-#  def index
-#    @products = Product.find :all
-#  end
-#
-#  def show
-#    @product = Product.find(params[:id])
-#  end
+  def index
+    if user_signed_in? #TODO: complete _product.html.erb
+      @wishlists = Wishlist.find :all, :conditions => { :user_id => current_user.id}
+    end
+    @products = Product.find :all
+  end
+
+  def show
+    if user_signed_in?
+      @wishlists = Wishlist.find :all, :conditions => { :user_id => current_user.id}
+    end
+    @product = Product.find(params[:id])
+  end
  
   def new
     @product = Product.new
@@ -28,6 +34,18 @@ class ProductsController < InheritedResources::Base
     generate_lists_from_connected_tables
     edit!
   end
+  
+  def update
+   if admin_signed_in?
+      @product = Product.find(params[:id])
+      update!
+   elsif user_signed_in?
+     #TODO: add missing lines
+      @product = Product.find(params[:id])
+      update!
+   end
+    
+   end
   
 =begin
   def create

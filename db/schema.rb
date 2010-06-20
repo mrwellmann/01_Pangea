@@ -96,6 +96,14 @@ ActiveRecord::Schema.define(:version => 20100615175512) do
 
   add_index "products", ["product_name"], :name => "index_products_on_product_name", :unique => true
 
+  create_table "products_wishlists", :id => false, :force => true do |t|
+    t.integer "wishlist_id", :null => false
+    t.integer "product_id",  :null => false
+  end
+
+  add_index "products_wishlists", ["product_id", "wishlist_id"], :name => "index_products_wishlists_on_product_id_and_wishlist_id", :unique => true
+  add_index "products_wishlists", ["wishlist_id"], :name => "index_products_wishlists_on_wishlist_id"
+
   create_table "users", :force => true do |t|
     t.string   "user_name",                                           :null => false
     t.string   "email",                               :default => "", :null => false
@@ -130,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20100615175512) do
   create_table "wishlists", :force => true do |t|
     t.string   "wishlist_name", :default => "New Wishlist", :null => false
     t.integer  "user_id",                                   :null => false
-    t.string   "visibility",    :default => "public",       :null => false
+    t.string   "visibility",                                :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
