@@ -8,12 +8,21 @@
   <%=h @wishlist.visibility %>
 </p>
 
-<p>
-  <b>Product wishes:</b>
-		<%for product in @wishlist.products%>
-				<%=	product.product_name %>
+<table border=1>
+	  <tr>
+    <th scope="col"><div align="left"><b>Product wishes:</b></th>
+  </tr>
+	<% unless @wishlist.products.empty?%>
+		<% for product in @wishlist.products %>
+			  <tr>
+    			<td><%= link_to product.product_name, product %></td>
+    			<td><%= button_to "Remove",
+						{ :action => "remove_product", :id => @wishlist.id ,:product_id=>product},
+	 					:style=>"border:groove" %></td> <!-- TODO: aktualiesieren von anfang an?-->
+  			</tr>
+			</div>
 		<% end %>
-</p>
-
+	<% end %>
+</table>
 <%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
 <%= link_to 'Back', wishlists_path %>

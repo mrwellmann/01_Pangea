@@ -21,10 +21,13 @@ class WishlistsController < InheritedResources::Base
   
   def remove_product
     @wishlist = Wishlist.find(params[:id])
-    @wishlist.products.delte(params[:product])
-    # :wishlist.products.delete(:product)
-    redirect_to(@product)
+    @product = @wishlist.products.find(params[:product_id])
+    @wishlist.products.delete(@product)
+    
+    #TODO render instead of redirect but need to fix root first
+    #render :action => "show"
+    redirect_to(@wishlist)
   end
- 
+  
   
 end

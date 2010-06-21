@@ -2,6 +2,8 @@ class Wishlist < ActiveRecord::Base
   has_and_belongs_to_many :products
   belongs_to :user
   
+  validates_presence_of :wishlist_name, :visibility
+  
 #  def addProduct(product)
 #    products<<product
 #  end

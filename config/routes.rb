@@ -20,7 +20,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => :home
   
-  #map.connect('',:controller => 'products')
+  #TODO do this root right and do in remove_product render instead of redirect
+  map.connect 'wishlists/remove_product/:id/', :controller => 'wishlists', :action => 'remove_product' 
+  map.connect 'products/add_to_wishlist/:id/', :controller => 'products', :action => 'add_to_wishlist'
+  
+  #map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -61,8 +67,5 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  
-  #map.connect ':controller/:action/:id'
-  #map.connect ':controller/:action/:id.:format'
   
 end

@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-   before_filter :authenticate_admin!, :except => [:show, :index, :update]
+   before_filter :authenticate_admin!, :except => [:show, :index, :update,:add_to_wishlist]
    
    
    #optional_belongs_to :continent
@@ -44,8 +44,28 @@ class ProductsController < InheritedResources::Base
       @product = Product.find(params[:id])
       update!
    end
-    
-   end
+  end
+
+  def add_to_wishlist
+    if user_signed_in?
+      
+      @product = Product.find(params[:id])
+      @wishlists = Wishlist.find(params[:product][:wishlist_ids])
+      
+      for wischlist in @wishlists
+        unless wischlist.products.exists?(@product)
+          wischlist.products<<@product
+        end
+      end
+      
+      if @wishlists.size == 1
+        redirect_to @wishlists[0]
+      else
+        redirect_to wishlists_path
+      end
+      
+    end
+  end
   
 =begin
   def create
