@@ -3,7 +3,7 @@ class CreateWishlists < ActiveRecord::Migration
     create_table :wishlists do |t|
       t.string :wishlist_name, :null => false, :default=>"New Wishlist"
       t.integer :user_id, :null => false
-      t.string :visibility, :null=>false
+      t.integer :visibility_id, :null=>false
 
 
       t.timestamps

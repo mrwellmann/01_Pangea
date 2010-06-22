@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :home, :only => :index
   map.resources :admins, :only => :index
   
+  map.resources :public_wishlists, :only => [:index,:show]
+  
   map.resources :wishlists
 
   map.resources :continents

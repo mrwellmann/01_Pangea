@@ -7,7 +7,7 @@
   </p>
   <p>
     <%= f.label :visibility %><br />
-		<%= f.select :visibility, options_for_select([['Public','Public'], ['Private', 'Private']])%>
+		<%= f.collection_select(:visibility_id,@visibility_list,:id,:visibility_kind)%>
   </p>
   <p>
     <%= f.submit button_name %>

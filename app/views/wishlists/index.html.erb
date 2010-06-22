@@ -10,7 +10,7 @@
 <% @wishlists.each do |wishlist| %>
   <tr>
     <td><%=h wishlist.wishlist_name %></td>
-    <td><%=h wishlist.visibility %></td>
+    <td><%=h wishlist.visibility.visibility_kind %></td>
 		<td>
 			Product wishes:
 			<%for product in wishlist.products%>

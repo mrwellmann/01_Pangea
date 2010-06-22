@@ -25,13 +25,13 @@ class ProductsController < InheritedResources::Base
  
   def new
     @product = Product.new
-    generate_lists_from_connected_tables
+    @continent_list = Continent.getAllByName
     new!
   end
 
   def edit
     @product = Product.find(params[:id])    
-    generate_lists_from_connected_tables
+    @continent_list = Continent.getAllByName
     edit!
   end
   
@@ -101,9 +101,5 @@ class ProductsController < InheritedResources::Base
 #  end
 =end
 
-private
-  
-  def generate_lists_from_connected_tables
-    @continent_list = Continent.find(:all, :order => "continent_name" )
-  end
+
 end

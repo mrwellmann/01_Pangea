@@ -1,0 +1,28 @@
+<h1>Listing Public Wishlists</h1>
+
+<table>
+  <tr>
+    <th>Wishlist name</th>
+    <th>User</th>
+		<th>Products</th>
+  </tr>
+
+<% @public_wishlists.each do |wishlist| %>
+  <tr>
+    <td><%=h wishlist.wishlist_name %></td>
+    <td><%=h wishlist.user.user_name %></td>
+		<td>
+			Product wishes:
+			<%for product in wishlist.products%>
+					<%=	product.product_name %>
+			<% end %>
+		</td>
+		<!--<%= link_to 'Show', wishlist%> sends you to show of Wishlist and not to show of PublicWishlist-->
+		 <td><%= link_to 'Show', { :action => "show", :id => wishlist.id} %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New wishlist', new_wishlist_path %>

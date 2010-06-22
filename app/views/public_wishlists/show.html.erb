@@ -1,0 +1,25 @@
+<h1>Public Wishlists</h1>
+
+<p>
+  <b>Wishlist name:</b>
+  <%=h @public_wishlist.wishlist_name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @public_wishlist.user.user_name %>
+</p>
+
+<table border=1>
+	  <tr>
+    <th scope="col"><div align="left"><b>Product wishes:</b></th>
+  </tr>
+	<% unless @public_wishlist.products.empty?%>
+		<% for product in @public_wishlist.products %>
+			  <tr>
+    			<td><%= link_to product.product_name, product %></td>
+			</div>
+		<% end %>
+	<% end %>
+</table>
+<%= link_to 'Back', wishlists_path %>

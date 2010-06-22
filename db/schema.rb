@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100615175512) do
+ActiveRecord::Schema.define(:version => 20100622112107) do
 
   create_table "admins", :force => true do |t|
     t.string   "user_name",                                           :null => false
@@ -135,20 +135,20 @@ ActiveRecord::Schema.define(:version => 20100615175512) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
 
-  create_table "wishlists", :force => true do |t|
-    t.string   "wishlist_name", :default => "New Wishlist", :null => false
-    t.integer  "user_id",                                   :null => false
-    t.string   "visibility",                                :null => false
+  create_table "visibilities", :force => true do |t|
+    t.string   "visibility_kind", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "wishlists_products", :id => false, :force => true do |t|
-    t.integer "wishlist_id", :null => false
-    t.integer "user_id",     :null => false
-  end
+  add_index "visibilities", ["visibility_kind"], :name => "index_visibilities_on_visibility_kind", :unique => true
 
-  add_index "wishlists_products", ["user_id", "wishlist_id"], :name => "index_wishlists_products_on_user_id_and_wishlist_id", :unique => true
-  add_index "wishlists_products", ["wishlist_id"], :name => "index_wishlists_products_on_wishlist_id"
+  create_table "wishlists", :force => true do |t|
+    t.string   "wishlist_name", :default => "New Wishlist", :null => false
+    t.integer  "user_id",                                   :null => false
+    t.integer  "visibility_id",                             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
