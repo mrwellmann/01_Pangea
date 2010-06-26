@@ -11,16 +11,18 @@ class ProductsController < InheritedResources::Base
 
   def index
     if user_signed_in? #TODO: complete _product.html.erb
-      @wishlists = Wishlist.find :all, :conditions => { :user_id => current_user.id}
+      @wishlists = Wishlist.findAllOwedByUser(current_user.id)
     end
     @products = Product.find :all
+    index!
   end
 
   def show
     if user_signed_in?
-      @wishlists = Wishlist.find :all, :conditions => { :user_id => current_user.id}
+      @wishlists = Wishlist.findAllOwedByUser(current_user.id)    
     end
     @product = Product.find(params[:id])
+    show!
   end
  
   def new
@@ -48,7 +50,6 @@ class ProductsController < InheritedResources::Base
 
   def add_to_wishlist
     if user_signed_in?
-      
       @product = Product.find(params[:id])
       @wishlists = Wishlist.find(params[:product][:wishlist_ids])
       
@@ -62,8 +63,7 @@ class ProductsController < InheritedResources::Base
         redirect_to @wishlists[0]
       else
         redirect_to wishlists_path
-      end
-      
+      end  
     end
   end
   

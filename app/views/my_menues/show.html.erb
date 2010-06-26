@@ -1,0 +1,32 @@
+<h1>My Menue</h1>
+<p>
+  <b>Menue name:</b>
+  <%=h @my_menue.menue_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @my_menue.description %>
+</p>
+
+<p>
+  <b>Expirience points:</b>
+  <%=h @my_menue.expirience_points %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @my_menue.price %>
+</p>
+
+<p>
+  <b>Ingredients:</b>
+  <%for food in @my_menue.foods%>
+		<%=	food.food_name %>,
+	<% end %>
+</p>
+
+			
+
+<%= link_to 'Edit', edit_my_menue_path(@my_menue) %> |
+<%= link_to 'Back', my_menues_path %>

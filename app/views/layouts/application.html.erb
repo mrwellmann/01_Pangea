@@ -18,12 +18,14 @@
 	  		<%= link_to 'Products', products_path %>
 				<%= link_to 'Foods', foods_path %>
 				<%= link_to 'Menues', menues_path %>
+				<%= link_to 'Custom Menues', custom_menues_path %>
 				<%= link_to 'Wishlists', public_wishlists_path %>
 	  </p>
 
       <% if user_signed_in? %>
         <div id="user_login_box" style="float:right">
           <%= current_user.email %> |
+					<%= link_to 'My Menues',my_menues_path %>
 					<%= link_to 'My Wishlist', wishlists_path %> |
           <%= link_to 'My info', edit_user_registration_path %> |
           <%= link_to 'Sign out', destroy_user_session_path %>

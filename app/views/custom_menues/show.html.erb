@@ -1,0 +1,31 @@
+<h1>Custom Menue</h1>
+<p>
+  <b>Menue name:</b>
+  <%=h @custom_menue.menue_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @custom_menue.description %>
+</p>
+
+<p>
+  <b>Expirience points:</b>
+  <%=h @custom_menue.expirience_points %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @custom_menue.price %>
+</p>
+
+<p>
+  <b>Ingredients:</b>
+  <%for food in @custom_menue.foods%>
+		<%=	food.food_name %>,
+	<% end %>
+</p>
+
+			
+
+<%= link_to 'Back', custom_menues_path %>

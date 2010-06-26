@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100622112107) do
+ActiveRecord::Schema.define(:version => 20100626151637) do
 
   create_table "admins", :force => true do |t|
     t.string   "user_name",                                           :null => false
@@ -50,13 +50,13 @@ ActiveRecord::Schema.define(:version => 20100622112107) do
   add_index "foodkinds", ["foodkind_name"], :name => "index_foodkinds_on_foodkind_name", :unique => true
 
   create_table "foods", :force => true do |t|
-    t.string   "food_name",                        :null => false
+    t.string   "food_name",         :null => false
     t.text     "description"
     t.string   "image_url"
-    t.integer  "price"
-    t.integer  "expirience_points", :default => 0
+    t.integer  "price",             :null => false
+    t.integer  "expirience_points", :null => false
     t.integer  "continent_id"
-    t.integer  "foodkind_id",                      :null => false
+    t.integer  "foodkind_id",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,23 +72,25 @@ ActiveRecord::Schema.define(:version => 20100622112107) do
   add_index "foods_menues", ["menue_id", "food_id"], :name => "index_foods_menues_on_menue_id_and_food_id", :unique => true
 
   create_table "menues", :force => true do |t|
-    t.string   "menue_name",                                                     :null => false
+    t.string   "menue_name",                                      :null => false
     t.string   "image_url"
     t.text     "description"
-    t.decimal  "price",             :precision => 6, :scale => 2
-    t.integer  "expirience_points",                               :default => 0
+    t.decimal  "price",             :precision => 6, :scale => 2, :null => false
+    t.integer  "user_id"
+    t.integer  "visibility_id"
+    t.integer  "expirience_points",                               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "menues", ["menue_name"], :name => "index_menues_on_menue_name", :unique => true
+  add_index "menues", ["menue_name"], :name => "index_menues_on_menue_name"
 
   create_table "products", :force => true do |t|
-    t.string   "product_name",                                                   :null => false
+    t.string   "product_name",                                    :null => false
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",             :precision => 6, :scale => 2
-    t.integer  "expirience_points",                               :default => 0
+    t.decimal  "price",             :precision => 6, :scale => 2, :null => false
+    t.integer  "expirience_points",                               :null => false
     t.integer  "continent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -150,5 +152,7 @@ ActiveRecord::Schema.define(:version => 20100622112107) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "wishlists", ["wishlist_name"], :name => "index_wishlists_on_wishlist_name"
 
 end

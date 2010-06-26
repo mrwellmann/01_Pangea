@@ -1,0 +1,10 @@
+<h1>Editing my menue</h1>
+
+<% form_tag @my_menue, :method=>"put" do %>
+	
+	<%= render :partial => 'insert_data', :locals => { :button_name => "Update" } %>
+		
+<% end %>
+
+<%= link_to 'Show', {:action => "show", :id => @my_menue.id} %> |
+<%= link_to 'Back', my_menues_path %>

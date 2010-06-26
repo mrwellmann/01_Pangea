@@ -6,6 +6,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :home, :only => :index
   map.resources :admins, :only => :index
   
+  map.resources :my_menues
+  
+  map.resources :custom_menues, :only => [:index,:show]
+  
   map.resources :public_wishlists, :only => [:index,:show]
   
   map.resources :wishlists

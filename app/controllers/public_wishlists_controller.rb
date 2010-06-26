@@ -18,22 +18,26 @@ class PublicWishlistsController < InheritedResources::Base
   
   def show
     @public_wishlist = Wishlist.find(params[:id])
-    if @public_wishlist.user_id == current_user.id
-      showPrivateWishlist
-    elsif @public_wishlist.visibility == Visibility.getPublic
-      show!
-    elsif @public_wishlist.visibility == Visibility.getPrivate
-      acsessValidation
+    if user_signed_in?
+      if @public_wishlist.user_id == current_user.id
+        showPrivateWishlist
+        return
+      elsif @public_wishlist.visibility == Visibility.getPublic
+        show!
+        return
+      elsif @public_wishlist.visibility == Visibility.getPrivate
+        acsessValidation
+        return
+      end
     end
   end
-end
 
 private
    def acsessValidation
-      flash[:notice] = 'Acsess validation! This wishlist it is not Public.'
-      redirect_to wishlists_path
+     super('This wishlist it is not Public.',public_wishlists_path)
    end
    
    def showPrivateWishlist
       redirect_to :controller=>"wishlists", :action => "show", :id => @public_wishlist.id
    end
+end

@@ -1,5 +1,5 @@
 class WishlistsController < InheritedResources::Base
-  before_filter :authenticate_user! , :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index]
   
   respond_to :html, :xml
   
@@ -12,10 +12,13 @@ class WishlistsController < InheritedResources::Base
     @wishlist = Wishlist.find(params[:id])
     if @wishlist.user_id == current_user.id
       show!
+      return
     elsif @wishlist.visibility == Visibility.getPublic
       showPublicWishlist
+      return
     elsif @wishlist.visibility == Visibility.getPrivate
       acsessValidation
+      return
     end
   end  
   
@@ -57,8 +60,7 @@ class WishlistsController < InheritedResources::Base
  
 private
    def acsessValidation
-      flash[:notice] = 'Acsess validation! This is not your wishlist and it is not Public.'
-      redirect_to wishlists_path
+      super('This wishlist it is not public.',wishlists_path)
    end
    
    def showPublicWishlist

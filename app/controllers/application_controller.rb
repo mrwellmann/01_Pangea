@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
       authenticate_user!
     end    
   end
+  
+  def acsessValidation (notice = 'Sorry but you tried to acsess a private page.', path = root_path)
+    flash[:notice] = 'Acsess validation! '+notice
+    redirect_to path
+  end  
 end
