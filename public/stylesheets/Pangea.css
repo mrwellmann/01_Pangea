@@ -1,7 +1,5 @@
-/* Styles for products/index */
-
-#product-list table {
-        border-collapse: collapse;
+#product-list table {  
+				width: 100%;
 }
 
 #product-list table tr td {
@@ -12,6 +10,13 @@
 #product-list .list-image {
   width:        60px;
   height:       70px;
+	zoom: 100%;
+	
+}
+
+#product-list a:hover{
+	zoom: 115%;
+	background: #ffffff
 }
 
 #product-list .list-description {
@@ -53,9 +58,10 @@
 }
 
 #product-list .list-line-even {
-  background:   #f0f0f0;
+  background:   #ffffff;
+	height: 20% 
 }
 
 #product-list .list-line-odd {
-  background:   #c8c8c8;
+  background:   #ffffff;
 }

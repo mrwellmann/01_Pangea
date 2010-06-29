@@ -1,5 +1,5 @@
 class WishlistsController < InheritedResources::Base
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!
   
   respond_to :html, :xml
   
@@ -24,14 +24,14 @@ class WishlistsController < InheritedResources::Base
   
   def new
     @wishlist = Wishlist.new
-    @visibility_list = Visibility.find :all
+    generate_visibility_list
     new!
   end
   
   def edit
     @wishlist = Wishlist.find(params[:id])
     if @wishlist.user_id == current_user.id
-      @visibility_list = Visibility.find :all
+      generate_visibility_list
       edit!
     else
       acsessValidation
@@ -40,9 +40,15 @@ class WishlistsController < InheritedResources::Base
   end
   
   def create
+    generate_visibility_list
     @wishlist = Wishlist.new(params[:wishlist])
     @wishlist.user_id = current_user.id
     create!{wishlists_path}
+  end
+  
+  def update
+    generate_visibility_list
+    update!
   end
   
   def remove_product
@@ -65,5 +71,9 @@ private
    
    def showPublicWishlist
       redirect_to :controller=>"public_wishlists", :action => "show", :id => @wishlist.id
-   end
+  end
+  
+  def generate_visibility_list
+    @visibility_list = Visibility.find :all
+  end
 end

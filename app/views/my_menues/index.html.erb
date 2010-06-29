@@ -1,16 +1,18 @@
 <h1>Listing My menues</h1>
 
-<table border=1 >
+<table>
   <tr>
     <th>Menue name</th>
+		<th>User</th>
     <th>Description</th>
     <th>Expirience points</th>
-    <th>Price</th>
+ <!--   <th>Price</th> -->
   </tr>
 
 <% @my_menues.each do |menue| %>
   <tr>
     <td><%=h menue.menue_name %></td>
+		<td><%=h menue.user.user_name %></td>
     <td>
 	    <%=h menue.description%><br>
 			Ingredients:
@@ -19,7 +21,7 @@
 			<% end %>
 		</td>
     <td><%=h menue.expirience_points %></td>
-    <td><%=h menue.price %></td>
+ <!--   <td><%=h menue.price %></td> -->
 		
     <td><%= link_to 'Show', {:action => "show", :id => menue.id} %></td>
     <td><%= link_to 'Edit', edit_my_menue_path(menue) %></td>

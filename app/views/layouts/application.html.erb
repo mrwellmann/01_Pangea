@@ -7,41 +7,63 @@
 
   </head>
   <body>
-  	
-    <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-      <% end %>
+		<div id="container">
+  			<table id='header'>
+					<tr>
+						<td colspan=2>
+							<div id="logo">
+								<%= link_to image_tag('/images/logo.png'),root_path%>
+							</div>
+							
+						</td>
+					</tr>
+				<tr>
+					<td>
+			   		<div id="navigation">	
+			      	<%= link_to 'Home', root_path %> |
+				  		<%= link_to 'Products', products_path %> |
+							<%= link_to 'Foods', foods_path %> |
+							<%= link_to 'Main Menues', menues_path %> |
+							<%= link_to 'Public Menues', custom_menues_path %> |
+							<%= link_to 'Public Wishlists', public_wishlists_path %>
+				  	</div>
+					</td>	
+					<td>
+						<div id="user_signin_box">
+							<% unless user_signed_in? %>
+								<%= link_to 'Login', new_user_session_path%> |
+								<%= link_to 'Register', new_user_registration_path %>
+							<%else%>
+			          Signd in as: <%= link_to current_user.user_name, edit_user_registration_path %> |
+								<%= link_to 'My Menues',my_menues_path %> |
+								<%= link_to 'My Wishlist', wishlists_path %> |
+			          <%= link_to 'Sign out', destroy_user_session_path %>
+				    	<% end %>
+							<% if admin_signed_in? %>
+				        <div id="admin_login_box" style="float:left">
+				          <%= current_admin.email %> |
+				          <%= link_to 'Admin section', admins_path %> |
+				          <%= link_to 'Sign out', destroy_admin_session_path %>
+				        </div>
+	      			<% end %>
+						</div>				
+					</td>
+				</tr>
+		</table>
+<!--		
+		<div id='body'>
+			<% flash.each do |name, msg| %>
+			  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+			<% end %>
+-->	
+	    <%= yield %>
+		</div>
+		
 
-      <p>
-      	<%= link_to 'Home', root_path %>
-	  		<%= link_to 'Products', products_path %>
-				<%= link_to 'Foods', foods_path %>
-				<%= link_to 'Menues', menues_path %>
-				<%= link_to 'Custom Menues', custom_menues_path %>
-				<%= link_to 'Wishlists', public_wishlists_path %>
-	  </p>
-
-      <% if user_signed_in? %>
-        <div id="user_login_box" style="float:right">
-          <%= current_user.email %> |
-					<%= link_to 'My Menues',my_menues_path %>
-					<%= link_to 'My Wishlist', wishlists_path %> |
-          <%= link_to 'My info', edit_user_registration_path %> |
-          <%= link_to 'Sign out', destroy_user_session_path %>
-        </div>
-      <% end %>
-      <% if admin_signed_in? %>
-        <div id="admin_login_box" style="float:left">
-          <%= current_admin.email %> |
-          <%= link_to 'Admin section', admins_path %> |
-          <%= link_to 'Sign out', destroy_admin_session_path %>
-        </div>
-      <% end %>
-      <div style="clear:both"></div>
-
-
-      <%= yield %>
+		
     </div>
+		<div id='sitemap'>
+			Desing and Code by Markus Wellmann - Logo Desing by Aneta Stránská and Veronika Sedláčková
+		</div>
   </body>
 </html>

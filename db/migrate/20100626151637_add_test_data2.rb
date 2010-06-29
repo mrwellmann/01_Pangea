@@ -25,16 +25,59 @@ class AddTestData2 < ActiveRecord::Migration
                  :password => '7654321',
                  :password_confirmation => '7654321')
                  
-                 
+#Wishlists
+    #public            
+    Wishlist.create(:wishlist_name => 'Public Wishlist 1 User 1',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 1,
+                  :visibility_id => 1)
+                  
+    Wishlist.create(:wishlist_name => 'Public Wishlist 2  User 1',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 1,
+                  :visibility_id => 1)
+
+    Wishlist.create(:wishlist_name => 'Public Wishlist 3  User 1',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 1,
+                  :visibility_id => 1)
+                  
+    Wishlist.create(:wishlist_name => 'Public Wishlist 1  User 2',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 2,
+                  :visibility_id => 1)
+
+    Wishlist.create(:wishlist_name => 'Public Wishlist 2  User 2',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 2,
+                  :visibility_id => 1)
+    #private             
+    Wishlist.create(:wishlist_name => 'Private Wishlist 1 User 1',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 1,
+                  :visibility_id => 2)
+ 
+    Wishlist.create(:wishlist_name => 'Private Wishlist 2 User 1',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 1,
+                  :visibility_id => 2) 
+  
+    Wishlist.create(:wishlist_name => 'Private Wishlist 3 User 1',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 1,
+                  :visibility_id => 2)
+ 
+    Wishlist.create(:wishlist_name => 'Private Wishlist 1 User 2',
+                  #:product_ids => [[1],[3]],
+                  :user_id => 2,
+                  :visibility_id => 2)   
+ 
+#Menues not working                
     Menue.create(:meune_name => 'Mittag 1',
                   :description => 'Mittags Menue Nummer 1',
                   :expirience_points => 50,
                   :price => 5.49)
-                  
-    Wishlist.create(:wishlist_name => 'W1',
-                  #:product_ids => [[1],[3]],
-                  :user_id => 1,
-                  :visibility_id => 1)
+  
   end
   
   def self.down

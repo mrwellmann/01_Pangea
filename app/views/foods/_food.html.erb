@@ -1,0 +1,15 @@
+<tr>
+	<td rowspan=3 align="center" valign="middle" width=' 33%'>
+
+			<% link_to(food) do %>
+				<%=image_tag(food.image_url, :class => 'list-image')%><br>
+				<%= food.food_name %>
+			<% end %>	
+			
+			<br>
+			<% if admin_signed_in? %>                                             
+			<%= link_to 'Edit', edit_food_path(food) %><br>                            
+			<%= link_to 'Delete', food, :confirm => 'Do you realy want to delete this food?', :method => :delete %>	
+		<% end %>		
+</tr>
+

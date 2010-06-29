@@ -3,14 +3,13 @@ class CustomMenuesController < InheritedResources::Base
   respond_to :html, :xml, :only => [ :index, :show ]
   
   def index
-    if user_signed_in?
-      @custom_menues = Menue.find(:all, :conditions => 
-        ["user_id NOT IN (?) AND visibility_id IN (?)",
-        current_user.id,Visibility.getPublic.id])
-    else
-      @custom_menues = Menue.find(:all, :conditions => {:visibility_id =>
-        Visibility.getPublic.id})
-    end
+#    if user_signed_in?
+#      @custom_menues = Menue.find(:all, :conditions => 
+#        ["user_id NOT IN (?) AND visibility_id IN (?)",
+#        current_user.id,Visibility.getPublic.id])
+#    else
+      @custom_menues = Menue.find(:all, :conditions => {:visibility_id => Visibility.getPublic.id})
+#    end
     index!
   end
   
@@ -28,8 +27,8 @@ class CustomMenuesController < InheritedResources::Base
   end
 
 private
+
   def acsessValidation
-    flash[:notice] = 'Acsess validation! This is not your menue and it is not Public.'
-    redirect_to custom_menues_path
+    super('This is not your menue and it is not Public.',custom_menues_path)
   end  
 end

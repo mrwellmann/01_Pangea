@@ -1,6 +1,6 @@
 <h1>Editing my menue</h1>
 
-<% form_tag @my_menue, :method=>"put" do %>
+<% form_tag({:action=>'update'}, :method =>'put') do %>
 	
 	<%= render :partial => 'insert_data', :locals => { :button_name => "Update" } %>
 		

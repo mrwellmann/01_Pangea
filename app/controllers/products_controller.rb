@@ -27,25 +27,20 @@ class ProductsController < InheritedResources::Base
  
   def new
     @product = Product.new
-    @continent_list = Continent.getAllByName
+    generate_continent_list
     new!
   end
 
   def edit
+    generate_continent_list#need to be here if ther is an imput error
     @product = Product.find(params[:id])    
-    @continent_list = Continent.getAllByName
     edit!
   end
   
   def update
-   if admin_signed_in?
-      @product = Product.find(params[:id])
-      update!
-   elsif user_signed_in?
-     #TODO: add missing lines
-      @product = Product.find(params[:id])
-      update!
-   end
+    generate_continent_list#need to be here if ther is an imput error
+    @product = Product.find(params[:id])
+    update!
   end
 
   def add_to_wishlist
@@ -66,7 +61,13 @@ class ProductsController < InheritedResources::Base
       end  
     end
   end
-  
+ 
+private
+  def generate_continent_list
+    @continent_list = Continent.getAllByName
+  end
+end
+
 =begin
   def create
     @product = Product.new(params[:product])
@@ -102,4 +103,4 @@ class ProductsController < InheritedResources::Base
 =end
 
 
-end
+

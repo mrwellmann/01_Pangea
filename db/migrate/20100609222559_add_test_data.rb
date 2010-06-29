@@ -16,7 +16,7 @@ class AddTestData < ActiveRecord::Migration
                     :description => %{Fiesta, fiesta mexicana... Da darf dieser Sombrero natürlich nicht fehlen. },
                     :image_url => '/images/sombrero.jpg' ,
                     :price => 3.99,
-                    :expirience_points =>0,
+                    :expirience_points =>25,
                     :continent_id => 3)
     
     Product.create( :product_name => 'Vuvuzela' ,
@@ -55,7 +55,7 @@ class AddTestData < ActiveRecord::Migration
                     :price => 1.99,
                     :expirience_points =>15,
                     :foodkind_id => 1,
-                    :continent_id =>3)
+                    :continent_id =>2)
                     
    Food.create( :food_name => 'Paulaner Weißbier',
                     :description => %{Ein echtes Paulner Weißbier},
@@ -87,7 +87,7 @@ class AddTestData < ActiveRecord::Migration
                     :price => 1.15,
                     :expirience_points =>5,
                     :foodkind_id => 3,
-                    :continent_id => 3)
+                    :continent_id => 2)
                     
     Food.create( :food_name => 'Garten Salat' ,
                     :description => %{Ein toller Salat schmekt fas so gut wies aus dem eignen Garten.},
@@ -110,7 +110,7 @@ class AddTestData < ActiveRecord::Migration
                     :price => 0.95,
                     :expirience_points =>5,
                     :foodkind_id => 6,
-                    :continent_id =>3)
+                    :continent_id =>2)
                     
     Food.create( :food_name => 'Nachos' ,
                     :description => %{Eine leckere portion Mexikanischer},
@@ -118,14 +118,15 @@ class AddTestData < ActiveRecord::Migration
                     :price => 1.59,
                     :expirience_points =>15,
                     :foodkind_id => 5,
-                    :continent_id => 5)
+                    :continent_id => 2)
     
     Food.create( :food_name => 'Burito' ,
                     :description => %{Ein Burrito ist ein Gericht aus der texanisch-mexikanischen Küche. Er besteht aus einer weichen Tortilla, in die unter anderem Hackfleisch, Bohnen, Reis, Tomaten, Avocado oder Käse eingewickelt werden.},
                     :image_url => '/images/Burito.png',
                     :price => 2.59,
                     :expirience_points =>25,
-                    :foodkind_id => 3)
+                    :foodkind_id => 3,
+                    :continent_id => 3)
                     
     Food.create( :food_name => 'Sushi' ,
                     :description => %{Sushi nach original japanischem Rezept},

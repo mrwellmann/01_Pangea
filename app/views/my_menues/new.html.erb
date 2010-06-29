@@ -1,6 +1,6 @@
 <h1>New Custom Menue</h1>
 
-<% form_tag(:controller=>'my_menues',:action=>'create') do %>
+<% form_tag({:action=>'create'},:method=>"post") do %>
 
 	<%= render :partial => 'insert_data', :locals => { :button_name => "Create" } %>
 

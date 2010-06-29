@@ -10,6 +10,7 @@ class MyMenuesController < InheritedResources::Base
   
   def show
     @my_menue = Menue.find(params[:id])
+    calculate_price_expirience_points#this is here because i think calculating is finishing afer redirect to show
     if @my_menue.user_id == current_user.id
       show!    
     elsif @my_menue.visibility_id == Visibility.getPublic.id
@@ -19,19 +20,18 @@ class MyMenuesController < InheritedResources::Base
     elsif @my_menue.visibility_id == Visibility.getPrivate.id
       acsessValidation
     end
-
   end
   
   def new
     @my_menue = Menue.new
-    generate_foodkind_and_foods_lists
+    generate_foodkind_foods_visibility_lists
     new!
   end
   
   def edit
     @my_menue = Menue.find(params[:id])
     if @my_menue.user_id == current_user.id
-      generate_foodkind_and_foods_lists
+      generate_foodkind_foods_visibility_lists
       edit!
     else
       acsessValidation
@@ -39,23 +39,20 @@ class MyMenuesController < InheritedResources::Base
   end
 
   def create
-    params[:menue][:food_ids] ||= []
-    @my_menue = Menue.new(params[:menue])
-    @my_menue.user_id == current_user.id
-    #create!
-
-    if @my_menue.save
-      flash[:notice] = 'Product was successfully .'
-      redirect_to(@my_menue)
-    else
-      render :action => "new"
-    end
+    generate_foodkind_foods_visibility_lists
+    @my_menue = Menue.new(params[:my_menue])
+    @my_menue.user_id = current_user.id
+    calculate_price_expirience_points
+   
+    create!
   end
   
   def update
-    if  params[:menue][:user_id] == current_user.id
-      params[:menue][:food_ids] ||= []
-      @my_menue = Menue.new(params[:menue])
+    generate_foodkind_foods_visibility_lists
+    params[:my_menue][:food_ids] ||= []
+    @my_menue = Menue.find(params[:id])
+    if @my_menue.user_id == current_user.id
+      calculate_price_expirience_points
       update!
     else
       acsessValidation
@@ -70,8 +67,22 @@ class MyMenuesController < InheritedResources::Base
   end
 
 private
+
+  def calculate_price_expirience_points
+    @my_menue.price=0
+    @my_menue.expirience_points=0
+    
+    for food in @my_menue.foods
+      @my_menue.price += food.price
+      @my_menue.expirience_points += food.expirience_points
+    end
+  end
+
+  def acsessValidation
+    super('This is not your menue and it is not Public.', my_menues_path)
+  end
   
-  def generate_foodkind_and_foods_lists#TODO try inherited from menues controler
+  def generate_foodkind_foods_visibility_lists
     @foodkind_list = Foodkind.find(:all)
     @foods_list = Food.find(:all, :order => "foodkind_id")
     @visibility_list = Visibility.find :all

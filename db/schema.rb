@@ -50,13 +50,13 @@ ActiveRecord::Schema.define(:version => 20100626151637) do
   add_index "foodkinds", ["foodkind_name"], :name => "index_foodkinds_on_foodkind_name", :unique => true
 
   create_table "foods", :force => true do |t|
-    t.string   "food_name",         :null => false
+    t.string   "food_name",                                       :null => false
     t.text     "description"
     t.string   "image_url"
-    t.integer  "price",             :null => false
-    t.integer  "expirience_points", :null => false
+    t.decimal  "price",             :precision => 6, :scale => 2, :null => false
+    t.integer  "expirience_points",                               :null => false
     t.integer  "continent_id"
-    t.integer  "foodkind_id",       :null => false
+    t.integer  "foodkind_id",                                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

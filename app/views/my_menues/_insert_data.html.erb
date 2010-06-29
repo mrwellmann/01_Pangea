@@ -1,41 +1,45 @@
-<%= error_messages_for 'my_menue' %>
+<%= error_messages_for :my_menue %>
 
 <table >
   <tr>
     <td >
 	    <p>
-    <%= label :menue, :meune_name, "Menue" %><br />
-    <%= text_field :menue, :menue_name %>
+    <%= label :my_menue, :meune_name, "Menue" %><br />
+    <%= text_field :my_menue, :menue_name %>
 		  </p>
 		</td>
     <td rowspan="5">
 	    <p>
-    <%= label :menue, :description %><br />
-    <%= text_area :menue, :description, :cols => 30, :rows => 10 %>
+    <%= label :my_menue, :description %><br />
+    <%= text_area :my_menue, :description, :cols => 30, :rows => 10 %>
+		  </p>
+    </td>
+  </tr>
+	<!--
+  <tr>
+    <td>
+	    <p>
+    <%= label :my_menue, :expirience_points %><br />
+    <%= text_field :my_menue, :expirience_points %>
 		  </p>
     </td>
   </tr>
   <tr>
     <td>
 	    <p>
-    <%= label :menue, :expirience_points %><br />
-    <%= text_field :menue, :expirience_points %>
+    <%= label :my_menue, :price %><br />
+    <%= text_field :my_menue, :price %>
 		  </p>
     </td>
   </tr>
-  <tr>
-    <td>
-	    <p>
-    <%= label :menue, :price %><br />
-    <%= text_field :menue, :price %>
-		  </p>
-    </td>
-  </tr>
+	-->
 	  <tr>
     <td>
 	    <p>
-    <%= label :menue,:visibility %><br />
-		<%= collection_select(:menue,:visibility_id,@visibility_list,:id,:visibility_kind)%>
+	  <%if @visibility_list != nil%>
+    	<%= label :my_menue,:visibility %><br />
+			<%= collection_select(:my_menue,:visibility_id,@visibility_list,:id,:visibility_kind)%>
+		<%end%> 
 		  </p>
     </td>
   </tr>
@@ -47,7 +51,6 @@
     </td>
   </tr>
 </table>
-	    <%= text_field :menue, :user_id %>  
 
 <%if @foodkind_list != nil%>
 	<table border=1 >
@@ -59,7 +62,7 @@
 				
 					<p style="background:#0F3">
 						<%if food.foodkind_id == foodkind.id %>
-							<%= check_box_tag "menue[food_ids][]",food.id, @my_menue.foods.include?(food)%>
+							<%= check_box_tag "my_menue[food_ids][]",food.id, @my_menue.foods.include?(food)%>
 							<%=h food.food_name%>		
 							<br>
 						<%end%>

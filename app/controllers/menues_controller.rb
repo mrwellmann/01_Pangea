@@ -18,8 +18,7 @@ before_filter :authenticate_admin!, :except => [:show, :index]
       redirect_to :controller=>"custom_menues", :action => "show", :id => params[:id]
     elsif @menue.visibility_id == Visibility.getPrivate.id
       acsessValidation
-    end
-    
+    end 
   end
   
   def new
@@ -35,18 +34,23 @@ before_filter :authenticate_admin!, :except => [:show, :index]
   end
 
   def create
-    params[:menue][:food_ids] ||= []#TODO waht is this for again because of uncheck?
+    generate_foodkind_and_foods_lists
     @menue = Menue.new(params[:menue])
     create!
   end
   
   def update
-    params[:menue][:food_ids] ||= []
+    generate_foodkind_and_foods_lists
+    params[:menue][:food_ids] ||= [] #is here because of gotcha when all check boxes getting deactivated at the same time
     @menue = Menue.find(params[:id])
     update!
   end
 
 private
+
+  def acsessValidation
+    super('This is not your menue and it is not Public.',menues_path)
+  end
   
   def generate_foodkind_and_foods_lists
     @foodkind_list = Foodkind.find(:all)

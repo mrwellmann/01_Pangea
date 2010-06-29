@@ -13,17 +13,26 @@
   <b>Expirience points:</b>
   <%=h @menue.expirience_points %>
 </p>
-
+<!--
 <p>
   <b>Price:</b>
   <%=h @menue.price %>
 </p>
-
+-->
 <p>
   <b>Ingredients:</b>
-  <%for food in @menue.foods%>
-		<%=	food.food_name %>,
-	<% end %>
+	<table>	
+	  <%for food in @menue.foods%>
+			<tr>
+				<td rowspan=4 align="center" valign="middle" width=' 25%'>
+					<% link_to(food) do %>	
+						<%= image_tag food.image_url, :size =>'100x100' %><br>	
+						<%= food.food_name%>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
 </p>
 
 			

@@ -4,7 +4,7 @@ class CreateFoods < ActiveRecord::Migration
       t.string :food_name,          :null => false
       t.text :description
       t.string :image_url         
-      t.integer :price,             :precision => 6, :scale => 2, :null => false 
+      t.decimal :price,             :precision => 6, :scale => 2, :null => false 
       t.integer :expirience_points,  :null => false
       t.integer :continent_id
       t.integer :foodkind_id,       :null => false

@@ -1,11 +1,11 @@
 <h1>Listing menues</h1>
 
-<table border=1 >
+<table>
   <tr>
     <th>Menue name</th>
     <th>Description</th>
     <th>Expirience points</th>
-    <th>Price</th>
+ <!--<th>Price</th>-->
   </tr>
 
 <% @menues.each do |menue| %>
@@ -19,15 +19,18 @@
 			<% end %>
 		</td>
     <td><%=h menue.expirience_points %></td>
-    <td><%=h menue.price %></td>
+ <!--   <td><%=h menue.price %></td>-->
 		
     <td><%= link_to 'Show', menue %></td>
-    <td><%= link_to 'Edit', edit_menue_path(menue) %></td>
-    <td><%= link_to 'Destroy', menue, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+		<% if admin_signed_in? %> 
+    	<td><%= link_to 'Edit', edit_menue_path(menue) %></td>
+    	<td><%= link_to 'Destroy', menue, :confirm => 'Are you sure?', :method => :delete %></td>
+  	<% end %>
+	</tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New menue', new_menue_path %>
+<% if admin_signed_in? %> 
+	<%= link_to 'New menue', new_menue_path %>
+<% end %>
