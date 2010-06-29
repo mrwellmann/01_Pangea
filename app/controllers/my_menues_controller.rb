@@ -10,7 +10,6 @@ class MyMenuesController < InheritedResources::Base
   
   def show
     @my_menue = Menue.find(params[:id])
-    calculate_price_expirience_points#this is here because i think calculating is finishing afer redirect to show
     if @my_menue.user_id == current_user.id
       show!    
     elsif @my_menue.visibility_id == Visibility.getPublic.id
@@ -42,8 +41,8 @@ class MyMenuesController < InheritedResources::Base
     generate_foodkind_foods_visibility_lists
     @my_menue = Menue.new(params[:my_menue])
     @my_menue.user_id = current_user.id
-    calculate_price_expirience_points
-   
+    calculate_price_expirience_points_on_create
+    
     create!
   end
   
@@ -52,7 +51,7 @@ class MyMenuesController < InheritedResources::Base
     params[:my_menue][:food_ids] ||= []
     @my_menue = Menue.find(params[:id])
     if @my_menue.user_id == current_user.id
-      calculate_price_expirience_points
+      calculate_price_expirience_points_on_update(params[:my_menue][:food_ids])
       update!
     else
       acsessValidation
@@ -68,11 +67,21 @@ class MyMenuesController < InheritedResources::Base
 
 private
 
-  def calculate_price_expirience_points
+  def calculate_price_expirience_points_on_create
     @my_menue.price=0
     @my_menue.expirience_points=0
     
     for food in @my_menue.foods
+      @my_menue.price += food.price
+      @my_menue.expirience_points += food.expirience_points
+    end
+  end
+  
+  def calculate_price_expirience_points_on_update(food_ids)
+    @my_menue.price=0
+    @my_menue.expirience_points=0
+    for food_id in food_ids
+      food=Food.find(food_id)
       @my_menue.price += food.price
       @my_menue.expirience_points += food.expirience_points
     end

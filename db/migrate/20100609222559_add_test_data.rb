@@ -93,7 +93,7 @@ class AddTestData < ActiveRecord::Migration
                     :description => %{Ein toller Salat schmekt fas so gut wies aus dem eignen Garten.},
                     :image_url => '/images/salat.png' ,
                     :price => 1.59,
-                    :expirience_points =>0,
+                    :expirience_points =>5,
                     :foodkind_id => 4,
                     :continent_id =>6)
                     

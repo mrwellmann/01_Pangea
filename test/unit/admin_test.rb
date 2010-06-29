@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  
+  subject {Admin.make}
+  should_validate_uniqueness_of :user_name
+  should_validate_presence_of :user_name
 end

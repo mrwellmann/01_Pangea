@@ -1,6 +1,6 @@
 class Visibility < ActiveRecord::Base
-  has_many :wishlists
-  has_many :menues
+  has_many :wishlists, :dependent => :nullify
+  has_many :menues, :dependent => :nullify
   
   validates_presence_of :visibility_kind
   validates_uniqueness_of :visibility_kind

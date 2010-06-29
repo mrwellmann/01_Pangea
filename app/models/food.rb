@@ -1,7 +1,7 @@
 class Food< ActiveRecord::Base
   belongs_to :continent
   belongs_to :foodkind
-  has_and_belongs_to_many :menue
+  has_and_belongs_to_many :menues
   
   validates_presence_of :food_name, :image_url, :price, :expirience_points, :foodkind_id
   

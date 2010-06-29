@@ -1,35 +1,6 @@
 <h1>Custom Menue</h1>
-<p>
-  <b>Menue name:</b>
-  <%=h @custom_menue.menue_name %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%=h @custom_menue.description %>
-</p>
-
-<p>
-  <b>Expirience points:</b>
-  <%=h @custom_menue.expirience_points %>
-</p>
-
-<p>
-  <b>Ingredients:</b>
-	<table>	
-	  <%for food in @custom_menue.foods%>
-			<tr>
-				<td rowspan=4 align="center" valign="middle" width=' 25%'>
-					<% link_to(food) do %>	
-						<%= image_tag food.image_url, :size =>'100x100' %><br>	
-						<%= food.food_name%>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-	</table>
-</p>
-
+<%= render :partial => '/menues/show', :locals => { :menue => @custom_menue } %>
 			
 
 <%= link_to 'Back', custom_menues_path %>

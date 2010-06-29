@@ -38,6 +38,20 @@ class ActiveSupport::TestCase
   #fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  setup { 
+    Sham.reset
+    Food.delete_all
+    Product.delete_all
+    Continent.delete_all
+    Foodkind.delete_all
+    Visibility.delete_all
+    Menue.delete_all
+    Wishlist.delete_all
+    User.delete_all
+    Admin.delete_all
+  }
+
 end
   require File.dirname(__FILE__) + '/blueprints'
   

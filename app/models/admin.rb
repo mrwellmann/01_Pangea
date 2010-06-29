@@ -2,6 +2,7 @@ class Admin < ActiveRecord::Base
    devise :database_authenticatable, :registerable, :timeoutable, :validatable,
    :lockable
    validates_uniqueness_of :user_name
+   validates_presence_of :user_name
    
    attr_accessible :user_name, :email, :password_confirmation, :password,
                     :reset_password_token, :unlock_token

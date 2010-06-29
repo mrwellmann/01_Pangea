@@ -27,9 +27,9 @@ a:hover {
 
 #container {
 
-	min-width: 600px;
+	min-width: 940px;
   min-height: 800px;
-  margin: 5%; auto;
+  margin: 3%; 3%;
   background-color: #ffffff;
   padding: 20px 40px;
   border: solid 1px black;
@@ -54,6 +54,10 @@ a:hover {
 #logo {
 	text-align: right;
 }
+#slogan {
+	vertical-align: baseline;
+	position: relative ; top:-0px; left:-0px;
+}
 
 
 #sitemap{
@@ -70,10 +74,9 @@ a:hover {
 #admin_signin_box{
 	visibility:hidden;
 }
-#admin_signin_box p{
-	
+#admin_login_box{
+	text-align: right;
 }
-
 
 
 

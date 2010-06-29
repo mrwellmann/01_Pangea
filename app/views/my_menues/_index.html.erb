@@ -1,0 +1,23 @@
+  <tr>
+    <th>Menue name</th>
+		<th>User</th>
+    <th>Description</th>
+    <th>Expirience points</th>
+ <!--   <th>Price</th> -->
+  </tr>
+
+<% menues.each do |menue| %>
+  <tr>
+    <td><%=h menue.menue_name %></td>
+		<td><%=h menue.user.user_name %></td>
+    <td>
+	    <%=h menue.description%><br>
+			Ingredients:
+			<%for food in menue.foods%>
+					<%=	food.food_name %>
+			<% end %>
+		</td>
+    <td><%=h menue.expirience_points %></td>
+ <!--   <td><%=h menue.price %></td> -->
+		
+    <td><%= link_to 'Show', {:action => "show", :id => menue.id} %></td>

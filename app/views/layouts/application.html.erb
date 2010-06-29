@@ -8,15 +8,17 @@
   </head>
   <body>
 		<div id="container">
-  			<table id='header'>
+  			<table id='header' >
 					<tr>
-						<td colspan=2>
-							<div id="logo">
+						<td id="slogan">
+							<%= image_tag('/images/one world3.png')%>
+						</td>
+						<td id="logo">
 								<%= link_to image_tag('/images/logo.png'),root_path%>
-							</div>
-							
 						</td>
 					</tr>
+			</table>
+			<table id='header' >
 				<tr>
 					<td>
 			   		<div id="navigation">	
@@ -28,25 +30,28 @@
 							<%= link_to 'Public Wishlists', public_wishlists_path %>
 				  	</div>
 					</td>	
-					<td>
-						<div id="user_signin_box">
-							<% unless user_signed_in? %>
-								<%= link_to 'Login', new_user_session_path%> |
-								<%= link_to 'Register', new_user_registration_path %>
-							<%else%>
-			          Signd in as: <%= link_to current_user.user_name, edit_user_registration_path %> |
-								<%= link_to 'My Menues',my_menues_path %> |
-								<%= link_to 'My Wishlist', wishlists_path %> |
-			          <%= link_to 'Sign out', destroy_user_session_path %>
-				    	<% end %>
-							<% if admin_signed_in? %>
-				        <div id="admin_login_box" style="float:left">
-				          <%= current_admin.email %> |
-				          <%= link_to 'Admin section', admins_path %> |
-				          <%= link_to 'Sign out', destroy_admin_session_path %>
-				        </div>
-	      			<% end %>
-						</div>				
+					<td id="user_signin_box">
+						<% unless user_signed_in? %>
+							<%= link_to 'Login', new_user_session_path%> |
+							<%= link_to 'Register', new_user_registration_path %>
+						<%else%>
+			        Signd in as: <%= link_to current_user.user_name, edit_user_registration_path %> |
+							<%= link_to 'My Menues',my_menues_path %> |
+							<%= link_to 'My Wishlist', wishlists_path %> |
+			        <%= link_to 'Sign out', destroy_user_session_path %>
+				    <% end %>
+					</td>
+				</tr>
+				<tr>
+					<td colspan='2' id="admin_login_box">	
+						<% if admin_signed_in? %>
+				      <div >
+				        <%= current_admin.email %> |
+				        <%= link_to 'Admin section', admins_path %> |
+				        <%= link_to 'Sign out', destroy_admin_session_path %>
+				      </div>
+	      		<% end %>
+									
 					</td>
 				</tr>
 		</table>

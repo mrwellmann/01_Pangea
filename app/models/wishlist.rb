@@ -11,10 +11,4 @@ class Wishlist < ActiveRecord::Base
     find(:all, {:conditions => {:user_id => user_id}})
   end
   
-#  def addProduct(product)
-#    products<<product
-#  end
-#  def findProduct(product)
-#    products.exists?(product)
-#  end
 end

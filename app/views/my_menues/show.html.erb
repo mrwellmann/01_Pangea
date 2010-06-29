@@ -1,40 +1,6 @@
 <h1>My Menue</h1>
-<p>
-  <b>Menue name:</b>
-  <%=h @my_menue.menue_name %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%=h @my_menue.description %>
-</p>
-
-<p>
-  <b>Expirience points:</b>
-  <%=h @my_menue.expirience_points %>
-</p>
-<!--
-<p>
-  <b>Price:</b>
-  <%=h @my_menue.price %>
-</p>
--->
-<p>
-  <b>Ingredients:</b>
-	<table>	
-	  <%for food in @my_menue.foods%>
-			<tr>
-				<td rowspan=4 align="center" valign="middle" width=' 25%'>
-					<% link_to(food) do %>	
-						<%= image_tag food.image_url, :size =>'100x100' %><br>	
-						<%= food.food_name%>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-	</table>
-</p>
-
+<%= render :partial => '/menues/show', :locals => { :menue => @my_menue } %>
 			
 
 <%= link_to 'Edit', edit_my_menue_path(@my_menue) %> |
