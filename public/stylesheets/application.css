@@ -1,7 +1,7 @@
 body {
   font-family: HelveticaNeueLT Std Lt;
   font-size: 16px;
-	min-width: 900px
+	min-width: 920px;
 	min-height: 800px;
 }
 
@@ -27,7 +27,6 @@ a:hover {
 
 #container {
 
-	min-width: 940px;
   min-height: 800px;
   margin: 3%; 3%;
   background-color: #ffffff;
@@ -55,8 +54,9 @@ a:hover {
 	text-align: right;
 }
 #slogan {
-	vertical-align: baseline;
-	position: relative ; top:-0px; left:-0px;
+	vertical-align:bottom;
+	text-align: center;
+	
 }
 
 
