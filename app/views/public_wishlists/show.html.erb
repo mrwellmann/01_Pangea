@@ -1,4 +1,4 @@
-<h1>Public Wishlists</h1>
+
 
 <p>
   <b>Wishlist name:</b>
@@ -17,8 +17,10 @@
 	<% unless @public_wishlist.products.empty?%>
 		<% for product in @public_wishlist.products %>
 			  <tr>
-    			<td><%= link_to product.product_name, product %></td>
-					<td><%= image_tag product.image_url,:size => "100x100", :class => 'list-image' %></td>
+    			<td rowspan=3 align="center" valign="middle" width=' 20%'>
+						<%= image_tag product.image_url,:size => "100x100", :class => 'list-image' %><br>
+						<%= link_to product.product_name, product %>
+					</td>
 			</div>
 		<% end %>
 	<% end %>

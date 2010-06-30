@@ -1,18 +1,18 @@
 <%= error_messages_for :my_menue %>
 
-<table >
+<table id='insert-table'>
   <tr>
     <td >
-	    <p>
+
     <%= label :my_menue, :meune_name, "Menue" %><br />
     <%= text_field :my_menue, :menue_name %>
-		  </p>
+
 		</td>
-    <td rowspan="5">
-	    <p>
+    <td rowspan="4">
+
     <%= label :my_menue, :description %><br />
     <%= text_area :my_menue, :description, :cols => 30, :rows => 10 %>
-		  </p>
+
     </td>
   </tr>
 	<!--
@@ -33,43 +33,38 @@
     </td>
   </tr>
 	-->
-	  <tr>
+	 <tr>
     <td>
-	    <p>
+
 	  <%if @visibility_list != nil%>
     	<%= label :my_menue,:visibility %><br />
 			<%= collection_select(:my_menue,:visibility_id,@visibility_list,:id,:visibility_kind)%>
 		<%end%> 
-		  </p>
-    </td>
-  </tr>
-	  <tr>
-    <td>
-	    <p>
-	    <%= submit_tag button_name%>
-		  </p>
+
     </td>
   </tr>
 </table>
 
 <%if @foodkind_list != nil%>
-	<table border=1 >
+	<table id='food-table'>
 		<%for foodkind in @foodkind_list%>
-		    
-				<td align="left"><%=h foodkind.foodkind_name %>
+				<td align="left">
+					<p><%=h foodkind.foodkind_name %></p>
 				
-				<%for food in @foods_list%>
-				
-					<p style="background:#0F3">
+					<%for food in @foods_list%>
 						<%if food.foodkind_id == foodkind.id %>
-							<%= check_box_tag "my_menue[food_ids][]",food.id, @my_menue.foods.include?(food)%>
-							<%=h food.food_name%>		
+							<%= check_box_tag "my_menue[food_ids][]",food.id, @my_menue.foods.include?(food),:id=>food.id%>
+							<label for=<%=h food.id%>> <%=h food.food_name%></label> 	
 							<br>
 						<%end%>
-					</p>
+					<%end%>
 					
-				<%end%>
 				</td>
 		<%end%>
 	</table>
 <%end%>
+
+<br>
+<%= submit_tag button_name%>
+<br>
+<br>

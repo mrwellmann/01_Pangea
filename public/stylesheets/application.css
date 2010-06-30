@@ -19,6 +19,7 @@ a:hover {
 }
 
 
+
 .clear {
   clear: both;
   height: 0;
@@ -59,7 +60,6 @@ a:hover {
 	
 }
 
-
 #sitemap{
 	text-align: center;
 	vertical-align: ;
@@ -78,6 +78,27 @@ a:hover {
 	text-align: right;
 }
 
+#food-table{
+	
+}
+#food-table td{
+	border-left:solid 1px #a0a0a0;
+	border-right:solid 1px #a0a0a0;
+	vertical-align: top;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top: 10px;
+}
+
+#food-table p{
+	border-bottom:solid 1px black;
+}
+
+#insert-table td{
+	vertical-align: top;
+	padding-right:20px;
+	padding-bottom:20px;
+}
 
 
 

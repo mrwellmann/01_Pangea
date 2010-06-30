@@ -7,4 +7,8 @@ class Continent < ActiveRecord::Base
   
   attr_accessible :continent_name
   
+  def self.getAllByName
+    find(:all, :order=> :continent_name)
+  end
+  
 end
