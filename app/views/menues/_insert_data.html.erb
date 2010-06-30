@@ -3,37 +3,28 @@
 <table id='insert-table'>
   <tr>
     <td>
-
-    <%= label :menue, :meune_name, "Menu" %><br />
-    <%= text_field :menue, :menue_name %>
-
+	    <%= label :menue, :meune_name, "Menu" %><br />
+	    <%= text_field :menue, :menue_name %>
 		</td>
     <td rowspan="3">
-
-    <%= label :meune, :description %><br />
-    <%= text_area :menue, :description, :cols => 30, :rows => 10 %>
-
+	    <%= label :meune, :description %><br />
+	    <%= text_area :menue, :description, :cols => 30, :rows => 10 %>
     </td>
   </tr>
   <tr>
     <td>
-
-    <%= label :meune, :expirience_points %><br />
-    <%= text_field :menue, :expirience_points %>
-
+	    <%= label :meune, :expirience_points %><br />
+	    <%= text_field :menue, :expirience_points %>
     </td>
   </tr>
   <tr>
     <td>
-
-    <%= label :meune, :price %><br />
-    <%= text_field :menue, :price %>
-
+	    <%= label :meune, :price %><br />
+	    <%= text_field :menue, :price %>
     </td>
   </tr>
 </table>
- 
-	  
+   
 <%if @foodkind_list != nil%>
 	<table id='food-table'>
 		<%for foodkind in @foodkind_list%>
@@ -50,11 +41,11 @@
 					<%end%>
 					
 				</td>
+				
 		<%end%>
 	</table>
 <%end%>
 
 <br>
 <%= submit_tag button_name %>
-<br>
-<br>
+<br><br>

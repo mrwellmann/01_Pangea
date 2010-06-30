@@ -1,9 +1,5 @@
-
-
-<% form_tag @menue, :method=>"put",:name=>"f1" do %>
-	
-	<%= render :partial => 'insert_data', :locals => { :button_name => "Update" } %>
-		
+<% form_tag @menue, :method=>"put" do %>
+	<%= render :partial => 'insert_data', :locals => { :button_name => "Update" } %>		
 <% end %>
 
 <%= link_to 'Show', @menue %> |

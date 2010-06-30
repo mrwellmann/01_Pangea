@@ -8,14 +8,12 @@ class FoodsController < InheritedResources::Base
   end
   
   def new
-    @food = Food.new
     generate_continent_foodkind_lists
     new!
   end
 
   def edit
-    @food = Food.find(params[:id])    
-    generate_continent_foodkind_lists
+    generate_continent_foodkind_lists   
     edit!
   end
   
@@ -26,14 +24,14 @@ class FoodsController < InheritedResources::Base
   
   def update
     generate_continent_foodkind_lists
-    !update
+    update!
   end
 
   
 private
 
   def generate_continent_foodkind_lists
-    @continent = Continent.find(:all, :order => "continent_name" )
-    @foodkind = Foodkind.find(:all, :order => "foodkind_name" )
+    @continent = Continent.getAllByName
+    @foodkind = Foodkind.getAllByName
   end
 end

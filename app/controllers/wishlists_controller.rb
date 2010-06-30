@@ -56,7 +56,7 @@ class WishlistsController < InheritedResources::Base
     if @wishlist.user_id == current_user.id
       @product = @wishlist.products.find(params[:product_id])
       @wishlist.products.delete(@product)
-      #TODO render instead of redirect but need to fix root first
+      #TODO render instead of redirect but then root needs to be changed to rest full
       #render :action => "show"
       redirect_to(@wishlist)
     else

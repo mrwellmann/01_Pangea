@@ -1,10 +1,10 @@
-  <tr>
-    <th>Menu name</th>
-		<th>User</th>
-    <th>Description</th>
-    <th>Expirience points</th>
+ <tr>
+  <th>Menu name</th>
+	<th>User</th>
+  <th>Description</th>
+  <th>Expirience points</th>
  <!--   <th>Price</th> -->
-  </tr>
+ </tr>
 
 <% menues.each do |menue| %>
   <tr>
@@ -19,6 +19,5 @@
 		</td>
     <td><%=h menue.expirience_points %></td>
  <!--   <td><%=h menue.price %></td> -->
-		
     <td><%= link_to 'Show', {:action => "show", :id => menue.id} %></td>
-		<% end %>
+<% end %>

@@ -1,4 +1,3 @@
-
 <p>
   <b>Title:</b>
   <%=h @product.product_name %>
@@ -33,17 +32,17 @@
 	<% if @wishlists != nil %>
 		<b>Add to Wishlist:</b>
 		
-			<% form_for @product, :url => { :action => "add_to_wishlist" } do |f| %>	
-		  	<%= f.error_messages %>
-				<%= f.collection_select(:wishlist_ids, @wishlists, :id, :wishlist_name,{},
-						{:multiple => true, :wishlist_name => ('product[:wishlist_ids][]')}) %>
-		    <%= f.submit 'Add'  %> <%= link_to 'New List', new_wishlist_path %>
-			<% end %>
-
+		<% form_for @product, :url => { :action => "add_to_wishlist" } do |f| %>	
+			<%= f.error_messages %>
+			<%= f.collection_select(:wishlist_ids, @wishlists, :id, :wishlist_name,{},
+					{:multiple => true, :wishlist_name => ('product[:wishlist_ids][]')}) %>
+		  <%= f.submit 'Add'  %> <%= link_to 'New List', new_wishlist_path %>
+		<% end %>
 		
 	 <% end %>		
 </p>
+
 <% if admin_signed_in? %>
-	<%= link_to 'Edit', edit_product_path(@product) %>
+	<%= link_to 'Edit', edit_product_path(@product) %> |
 <% end %>
 <%= link_to 'Back', :back %>

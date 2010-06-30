@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   
   
-  def check_somebody_logged_in
-    unless (user_signed_in? || admin_signed_in?)
-      authenticate_user!
-    end    
-  end
+#  def check_somebody_logged_in #for features were you just have to be logged in
+#    unless (user_signed_in? || admin_signed_in?)
+#      authenticate_user!
+#    end    
+#  end
   
   def acsessValidation (notice = 'Sorry but you tried to acsess a private page.', path = root_path)
     flash[:notice] = 'Acsess validation! '+notice

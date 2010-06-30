@@ -1,16 +1,11 @@
 class ProductsController < InheritedResources::Base
    before_filter :authenticate_admin!, :except => [:show, :index, :update,:add_to_wishlist]
    
-   
-   #optional_belongs_to :continent
-   #belongs_to :continent
    respond_to :html, :xml
-   
-   
-#geting done by inherited_resources so cracy   
+    
 
   def index
-    if user_signed_in? #TODO: complete _product.html.erb
+    if user_signed_in?
       @wishlists = Wishlist.findAllOwedByUser(current_user.id)
     end
     @products = Product.find :all
@@ -26,20 +21,22 @@ class ProductsController < InheritedResources::Base
   end
  
   def new
-    @product = Product.new
-    generate_continent_list
+    generate_continent_list    
     new!
   end
 
   def edit
-    generate_continent_list#need to be here if ther is an imput error
-    @product = Product.find(params[:id])    
+    generate_continent_list 
     edit!
   end
   
+  def create
+    generate_continent_list
+    create!
+  end
+  
   def update
-    generate_continent_list#need to be here if ther is an imput error
-    @product = Product.find(params[:id])
+    generate_continent_list
     update!
   end
 
@@ -68,6 +65,7 @@ private
   end
 end
 
+#is here so have a look how its look like with out InheritedResources
 =begin
   def create
     @product = Product.new(params[:product])

@@ -3,16 +3,12 @@
 <table id='insert-table'>
   <tr>
     <td >
-
-    <%= label :my_menue, :meune_name, "Menu" %><br />
-    <%= text_field :my_menue, :menue_name %>
-
+	    <%= label :my_menue, :meune_name, "Menu" %><br />
+	    <%= text_field :my_menue, :menue_name %>
 		</td>
     <td rowspan="4">
-
-    <%= label :my_menue, :description %><br />
-    <%= text_area :my_menue, :description, :cols => 30, :rows => 10 %>
-
+	    <%= label :my_menue, :description %><br />
+	    <%= text_area :my_menue, :description, :cols => 30, :rows => 10 %>
     </td>
   </tr>
 	<!--
@@ -35,12 +31,10 @@
 	-->
 	 <tr>
     <td>
-
-	  <%if @visibility_list != nil%>
-    	<%= label :my_menue,:visibility %><br />
-			<%= collection_select(:my_menue,:visibility_id,@visibility_list,:id,:visibility_kind)%>
-		<%end%> 
-
+		  <%if @visibility_list != nil%>
+	    	<%= label :my_menue,:visibility %><br />
+				<%= collection_select(:my_menue,:visibility_id,@visibility_list,:id,:visibility_kind)%>
+			<%end%> 
     </td>
   </tr>
 </table>
@@ -60,6 +54,7 @@
 					<%end%>
 					
 				</td>
+				
 		<%end%>
 	</table>
 <%end%>

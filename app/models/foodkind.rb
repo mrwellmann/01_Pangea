@@ -5,4 +5,8 @@ class Foodkind < ActiveRecord::Base
     validates_uniqueness_of :foodkind_name
     
     attr_accessible :foodkind_name
+    
+  def self.getAllByName
+    find(:all, :order=> :foodkind_name)
+  end
 end

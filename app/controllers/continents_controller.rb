@@ -1,5 +1,5 @@
 class ContinentsController < InheritedResources::Base
-  #before_filter :authenticate_admin!
+  before_filter :authenticate_admin!
   
   respond_to :html, :xml
  end

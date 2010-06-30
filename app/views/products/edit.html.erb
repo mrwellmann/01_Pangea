@@ -1,6 +1,4 @@
-
-
-<%= render(:partial => 'insert_data') %>
+<%= render :partial => 'insert_data', :locals => { :button_name => "Update" } %>
 
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>

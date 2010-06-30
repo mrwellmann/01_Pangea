@@ -26,7 +26,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => :home
   
-  #TODO do this root right and do in remove_product render instead of redirect
   map.connect 'wishlists/remove_product/:id/', :controller => 'wishlists', :action => 'remove_product' 
   map.connect 'products/add_to_wishlist/:id/', :controller => 'products', :action => 'add_to_wishlist'
   
