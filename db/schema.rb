@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20100626151637) do
 
   create_table "menues", :force => true do |t|
     t.string   "menue_name",                                      :null => false
-    t.string   "image_url"
     t.text     "description"
     t.decimal  "price",             :precision => 6, :scale => 2, :null => false
     t.integer  "user_id"
