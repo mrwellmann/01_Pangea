@@ -1,13 +1,2 @@
-Experience Point System
-For buying products you need to have an amount of experience points (exp) which you get from buying food. You can buy a product only if you have enough exp.
-If you buy a menu the amount of exp will be higher than if you by them as single. Also the menus will be cheaper.
-The clue with the exp System is, if you by a foods or menus you get exp anyway so some people will think, “oh wow I have exp I should use them and buy something”.
-
-Website
-The basic idea is to build in extra contend for users so there is a good reason for people to go and stay on the Website.
-The current features are made to share and generate own contend.
-You can create own wish lists for products and menus for foods and share them with other users. The price and the count of exp of the created menus will be generated automatically
-Other Features could be: 
-A rating system for products and menus so people could decide which menus and products they like the most. The best rated will stay longer for selling
-If you look into a menu there will be shown which products you could buy with the amount of exp you get from buying the food.
-Also if you look into a product there will be suggestions for menus which will give you the amount of exp to buy this product
+== Pangea
+Webside of a imagninary Fastfood restaurant.
