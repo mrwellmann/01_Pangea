@@ -55,6 +55,6 @@ DEPENDENCIES
   rails (~> 2.3.5)
   ruby-prof (= 0.8.1)
   shoulda (~> 2.10.3)
-  sqlite3-ruby (~> 1.2.5)
+  sqlite3-ruby (= 1.2.5)
   warden (~> 0.10.3)
   webrat (~> 0.7.1)
