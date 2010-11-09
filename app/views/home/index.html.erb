@@ -1,17 +1,31 @@
 
-<br><br><br><br><br><br>
-<div id="slogan">
-	<%= image_tag('/images/one world2.png')%>
-</div>
-
-<div id='admin_signin_box'>
-	<% unless admin_signed_in? -%>
-	  <p><%= link_to 'Sign up as Admin', new_admin_registration_path %></p>
-	  <p><%= link_to 'Sign in as Admin', new_admin_session_path %></p>
-	<% end -%>
-	
-	<% unless user_signed_in? -%>
-	  <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
-	  <p><%= link_to 'Sign in as User', new_user_session_path %></p>
-	<% end -%>
+<div>
+	 <%= image_tag('/images/one world2.png') %>
+    <span>
+        <p>
+        	<h3>Pangea</h3>
+            Pangea is a Prototype for an imaginary website. It was build during my semester abroad at FH Salzburg. The concept was developed by Aneta Stránská,Veronika Sedláčková and me.
+        </p>
+        <p>
+        	<h3>Idea</h3>
+            The idea is to have a fast food restaurant which serves foods from different continents with an included merchandise shop. The deal is that there is an experience point system which allows you only to by products if you have the amount of experience points (exp) needed. You get exp by buying foods. Also for buying a whole menu you will get an extra amont of exp. The main Idea behind this is that if someone buys some food, he will get an amount of exp anyway and so some people will think “oh wow I have exp, their worth something, maybe I should use them”.
+        </p>
+        <p>
+        	<h3>Webside</h3>
+            The Idea behind the website is to build extra contend for users so there is a good reason for people to go and stay on it. Current features are made to share and generate own contend. Users can create own wish lists for products and menus for foods and share them with other users. The price and the count of exp of the created menus will be generated automatically. 
+        </p>
+        <p>
+        	<h3>Webside Vision</h3>
+            An Idea for a more advanced algorithm would be to let the users suggest a price and the amount of exp given so there could be a way to get the expectation and wishes of customers. Also a rating system for products and menus, so people could decide which menus and products they like the most, could be implemented The best rated would stay longer for selling.
+            When Users brows through menus and products there could be also suggestions which products they could buy the amount of exp they get from buying the food, Also if the look through the products there would be suggestion for menus which will give them the amount of exp they need to by that product.
+        </p>
+		<p>
+        	<h3>Webside Usage</h3>
+			You can login as "user" "1234567" or "user1" "7654321". As user you can create and share own menus and wishlists share them. For Admin login you need to go to /admin/sign_in admin accounts are "admin" "1234567" or "admin" "7654321". As admin you can add edit and create Products, Foods and public menus. You also can register your own accounts. There is now valid email needed. Mail function is not activated so there wont going any emails out. 
+        </p>
+		<p>
+        	<h3>Logo and Cooperate Design</h3>
+            If you are interested in the logo creation and some some of the cooperate design. You can have a look in the <a href="data/presentationpangea.pdf">Presentation file</a>.
+        </p>
+    </span>
 </div>
