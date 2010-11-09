@@ -1,19 +1,16 @@
 source "http://rubygems.org"
 source "http://gemcutter.org"
 
+  gem 'sqlite3-ruby', "~>1.2.5", :require => "sqlite3"
   gem 'warden', 	"~> 0.10.3"
   gem 'devise', 	"~> 1.0.6"
   gem 'rack', 	"~> 1.0.1"
   gem 'rails', 	"~> 2.3.5" 
-  gem 'sqlite3-ruby', "~>1.2.5", :require => "sqlite3"
   gem 'inherited_resources', "~> 1.0.6"
   
 
 # bundler requires these gems in all environments
 
-group :development do
-  # bundler requires these gems in development
-end
 
 group :test do
   gem 'machinist', "~> 1.0.6"

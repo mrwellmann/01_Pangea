@@ -47,6 +47,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  sqlite3-ruby (~> 1.2.5)
   devise (~> 1.0.6)
   faker (~> 0.3.1)
   inherited_resources (~> 1.0.6)
@@ -58,4 +59,3 @@ DEPENDENCIES
   sqlite3-ruby (~> 1.2.5)
   warden (~> 0.10.3)
   webrat (~> 0.7.1)
-  sqlite3-ruby (~> 1.2.5)
