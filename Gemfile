@@ -6,10 +6,6 @@ source "http://gemcutter.org"
   gem 'rack', 	"~> 1.0.1"
   gem 'rails', 	"~> 2.3.5" 
   gem 'inherited_resources', "~> 1.0.6"
-  
-group :production, :staging do
-  gem "pg"
-end
 
 group :development, :test do
   gem "sqlite3-ruby", "~>1.2.5", :require => "sqlite3"
